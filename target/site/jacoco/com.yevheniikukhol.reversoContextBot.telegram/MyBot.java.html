@@ -6,7 +6,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import com.yevheniikukhol.reversoContextBot.reversoParser.Parser;
 import java.util.*;
-import java.io.IOException; 
+import java.io.IOException;
 
 <span class="nc" id="L11">public class MyBot extends TelegramLongPollingBot {</span>
 	public void onUpdateReceived(Update update){
@@ -22,8 +22,8 @@ import java.io.IOException;
 <span class="nc" id="L22">					.setText(translatedRes);</span>
 
 <span class="nc" id="L24">				execute(message);</span>
-<span class="nc" id="L25">			} catch(TelegramApiException e){</span>
-<span class="nc" id="L26">				e.printStackTrace();</span>
+<span class="nc" id="L25">			} catch(TelegramApiException ex){</span>
+<span class="nc" id="L26">				ex.printStackTrace();</span>
 <span class="nc" id="L27">			} catch(IOException ex) {</span>
 <span class="nc" id="L28">				ex.printStackTrace();</span>
 <span class="nc" id="L29">			} catch(Exception ex){</span>
@@ -43,8 +43,8 @@ import java.io.IOException;
 	private HashMap&lt;String,String&gt; parseMessageText(String message) {
 <span class="nc" id="L44">		HashMap&lt;String,String&gt; params = new HashMap&lt;&gt;();</span>
 <span class="nc" id="L45">		String[] paramsArr = message.split(&quot; &quot;);</span>
-<span class="nc" id="L46">		params.put(&quot;lang&quot;, paramsArr[0]);</span>
-<span class="nc" id="L47">		params.put(&quot;word&quot;, paramsArr[1]);</span>
+<span class="nc" id="L46">		params.put(&quot;lang&quot;, paramsArr[0].trim());</span>
+<span class="nc" id="L47">		params.put(&quot;word&quot;, paramsArr[1].trim());</span>
 <span class="nc" id="L48">		return params;</span>
 	}
 

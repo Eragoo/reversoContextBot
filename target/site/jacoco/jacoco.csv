@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 reversoContextBot,com.yevheniikukhol.reversoContextBot,App,19,0,0,0,8,0,2,0,2,0
-reversoContextBot,com.yevheniikukhol.reversoContextBot.telegram,MyBot,98,0,4,0,26,0,8,0,6,0
-reversoContextBot,com.yevheniikukhol.reversoContextBot.reversoParser,Text,46,0,0,0,15,0,6,0,6,0
+reversoContextBot,com.yevheniikukhol.reversoContextBot.telegram,MyBot,100,0,4,0,26,0,8,0,6,0
+reversoContextBot,com.yevheniikukhol.reversoContextBot.reversoParser,Text,36,0,0,0,15,0,6,0,6,0
 reversoContextBot,com.yevheniikukhol.reversoContextBot.reversoParser,Parser,171,0,6,0,31,0,7,0,4,0

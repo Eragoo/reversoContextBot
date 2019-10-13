@@ -29,8 +29,8 @@ public class Text {
 	}
 
 	private void generateFinalText() throws Exception{
-		//byte[] bytes = "\xF0\x9F\x98\x81".getBytes();
-		//String emoji = new String(bytes, "UTF-8");
-		finalText = translate + "\n\r" + examples;
+		
+		//finalText = translate + "\n\r" + examples;
+		finalText = examples;
 	}
 }
