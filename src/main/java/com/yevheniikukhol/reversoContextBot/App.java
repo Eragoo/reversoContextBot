@@ -9,7 +9,6 @@ public class App {
 	
     public static void main(String[] args){
     	ApiContextInitializer.init();
-
     	TelegramBotsApi botsApi = new TelegramBotsApi();
 
     	try{

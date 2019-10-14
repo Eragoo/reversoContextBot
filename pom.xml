@@ -19,7 +19,14 @@
 	</properties>
 
 	<dependencies>
-			<!-- https://mvnrepository.com/artifact/org.telegram/telegrambots -->
+		<!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.28.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.telegram/telegrambots -->
 		<dependency>
 		    <groupId>org.telegram</groupId>
 		    <artifactId>telegrambots</artifactId>
