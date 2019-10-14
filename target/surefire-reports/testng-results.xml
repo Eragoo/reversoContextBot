@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-10-14T11:20:14Z" name="AllTests" finished-at="2019-10-14T11:20:14Z" duration-ms="234">
+  <suite started-at="2019-10-14T12:08:58Z" name="AllTests" finished-at="2019-10-14T12:08:58Z" duration-ms="193">
     <groups>
     </groups>
-    <test started-at="2019-10-14T11:20:14Z" name="All" finished-at="2019-10-14T11:20:14Z" duration-ms="234">
+    <test started-at="2019-10-14T12:08:58Z" name="All" finished-at="2019-10-14T12:08:58Z" duration-ms="193">
       <class name="com.yevheniikukhol.reversoContextBot.testing.AppTest">
-        <test-method signature="test()[pri:0, instance:com.yevheniikukhol.reversoContextBot.testing.AppTest@4a734c04]" started-at="2019-10-14T11:20:14Z" name="test" finished-at="2019-10-14T11:20:14Z" duration-ms="45" status="PASS">
+        <test-method signature="test()[pri:0, instance:com.yevheniikukhol.reversoContextBot.testing.AppTest@4a734c04]" started-at="2019-10-14T12:08:58Z" name="test" finished-at="2019-10-14T12:08:58Z" duration-ms="39" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->

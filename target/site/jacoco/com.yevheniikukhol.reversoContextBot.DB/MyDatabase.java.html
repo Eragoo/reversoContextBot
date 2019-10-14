@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MyDatabase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">reversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.yevheniikukhol.reversoContextBot.DB</a> &gt; <span class="el_source">MyDatabase.java</span></div><h1>MyDatabase.java</h1><pre class="source lang-java linenums">package com.yevheniikukhol.reversoContextBot.DB;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
+
+public class MyDatabase {
+
+	private static String table;
+	private static Connection conn;
+	private static Statement statement;
+
+<span class="nc" id="L15">	public MyDatabase(String tab) {</span>
+<span class="nc" id="L16">		table = tab;</span>
+<span class="nc" id="L17">	}</span>
+
+	public static void connect() throws SQLException{
+<span class="nc" id="L20">		String url = &quot;jdbc:sqlite:telegramTest.db&quot;;</span>
+<span class="nc" id="L21">		conn = DriverManager.getConnection(url);</span>
+<span class="nc" id="L22">		statement = conn.createStatement();</span>
+<span class="nc" id="L23">	}</span>
+
+	public static void write(HashMap&lt;String,String&gt; fieldValueMap) throws SQLException{
+<span class="nc" id="L26">		HashMap&lt;String, String&gt; params = getQueryParams(fieldValueMap);</span>
+
+<span class="nc" id="L28">		statement.execute(&quot;INSERT INTO '&quot;+ table +&quot;' (&quot;+ params.get(&quot;fields&quot;) +&quot;) VALUES (&quot;+ params.get(&quot;values&quot;) +&quot;)&quot;);</span>
+<span class="nc" id="L29">	}</span>
+
+
+	public static ResultSet getField(String fields) throws SQLException{
+
+<span class="nc" id="L34">		return statement.executeQuery(&quot;SELECT &quot; + fields +&quot; FROM &quot; + table);</span>
+	}
+
+	public static ResultSet getField(String fields, String where) throws SQLException{
+
+<span class="nc" id="L39">		return statement.executeQuery(&quot;SELECT &quot; + fields +&quot; FROM &quot; + table + &quot; WHERE &quot;+ where);</span>
+	}
+
+	public static int getCount() throws SQLException{
+
+<span class="nc" id="L44">		return statement.executeQuery(&quot;SELECT COUNT(*) AS count FROM &quot;+ table).getInt(&quot;count&quot;);</span>
+	}
+	public static int getCount(String where) throws SQLException{
+
+<span class="nc" id="L48">		return statement.executeQuery(&quot;SELECT COUNT(*) AS count FROM &quot;+ table + &quot; WHERE &quot; + where).getInt(&quot;count&quot;);</span>
+	}
+
+	public static void update(String set, String where) throws SQLException {
+<span class="nc" id="L52">		statement.execute(&quot;UPDATE &quot;+ table + &quot; SET  &quot; + set + &quot; WHERE id=1&quot;);</span>
+<span class="nc" id="L53">	}</span>
+
+
+
+	private static HashMap&lt;String, String&gt; getQueryParams(HashMap&lt;String,String&gt; fieldValueMap) {
+<span class="nc" id="L58">		HashMap&lt;String, String&gt; params = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L60">		String fields = &quot;&quot;;</span>
+<span class="nc" id="L61">		String values = &quot;&quot;;</span>
+<span class="nc" id="L62">		int i = 0;</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		for (Map.Entry&lt;String, String&gt; entry: fieldValueMap.entrySet()) {</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">			if (i &gt; 0) {</span>
+<span class="nc" id="L65">				fields += &quot;, &quot; + &quot;'&quot; + entry.getKey() + &quot;'&quot;;</span>
+<span class="nc" id="L66">				values += &quot;, &quot; + &quot;'&quot; + entry.getValue() + &quot;'&quot;;</span>
+			}else{
+<span class="nc" id="L68">				fields += &quot;'&quot; + entry.getKey() + &quot;'&quot;;</span>
+<span class="nc" id="L69">				values += &quot;'&quot; + entry.getValue() + &quot;'&quot;;</span>
+			}
+<span class="nc" id="L71">			i++;</span>
+<span class="nc" id="L72">		}</span>
+
+<span class="nc" id="L74">		params.put(&quot;fields&quot;, fields);</span>
+<span class="nc" id="L75">		params.put(&quot;values&quot;, values);</span>
+<span class="nc" id="L76">		return params;</span>
+	}
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

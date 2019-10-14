@@ -13,121 +13,165 @@ import java.io.IOException;
 import com.yevheniikukhol.reversoContextBot.DB.MyDatabase;
 
 <span class="nc" id="L15">public class MyBot extends TelegramLongPollingBot {</span>
+<span class="nc" id="L16">	private String langToTranslate = &quot;&quot;;</span>
 
 	public void onUpdateReceived(Update update){
-<span class="nc bnc" id="L18" title="All 4 branches missed.">		if (update.hasMessage() &amp;&amp; update.getMessage().hasText()) {</span>
-<span class="nc" id="L19">		    String message = update.getMessage().getText();</span>
-<span class="nc bnc" id="L20" title="All 3 branches missed.">		    switch (message){</span>
+<span class="nc bnc" id="L19" title="All 4 branches missed.">		if (update.hasMessage() &amp;&amp; update.getMessage().hasText()) {</span>
+<span class="nc" id="L20">		    String message = update.getMessage().getText();</span>
+<span class="nc bnc" id="L21" title="All 3 branches missed.">		    switch (message){</span>
                 case &quot;/start&quot;:
-<span class="nc" id="L22">                    StartCommand(update);</span>
-<span class="nc" id="L23">                    break;</span>
+<span class="nc" id="L23">                    StartCommand(update);</span>
+<span class="nc" id="L24">                    break;</span>
                 case &quot;/help&quot;:
-<span class="nc" id="L25">                    HelpCommand(update);</span>
-<span class="nc" id="L26">                    break;</span>
+<span class="nc" id="L26">                    HelpCommand(update);</span>
+<span class="nc" id="L27">                    break;</span>
                 default:
-<span class="nc" id="L28">                    Translate(update);</span>
+<span class="nc" id="L29">                    Translate(update);</span>
                     break;
             }
-<span class="nc bnc" id="L31" title="All 2 branches missed.">		}else if (update.hasCallbackQuery()){</span>
-<span class="nc" id="L32">            String call_data = update.getCallbackQuery().getData();</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">            switch (call_data){</span>
-                case &quot;choose-lang&quot;:
-<span class="nc" id="L35">                    StartHelper(update);</span>
-                    break;
+<span class="nc bnc" id="L32" title="All 2 branches missed.">		}else if (update.hasCallbackQuery()){</span>
+<span class="nc" id="L33">            String call_data = update.getCallbackQuery().getData();</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            switch (call_data){</span>
+                case &quot;lang-list&quot;:
+<span class="nc" id="L36">                    StartHelper(update);</span>
+<span class="nc" id="L37">                    break;</span>
+				default:
+<span class="nc" id="L39">					TranslateHelper(update);</span>
+					break;
             }
 		}
-<span class="nc" id="L39">	}</span>
+<span class="nc" id="L43">	}</span>
 
 	private void Translate(Update update){
-<span class="nc" id="L42">	    String message_text = update.getMessage().getText();</span>
-<span class="nc" id="L43">	    long chat_id = update.getMessage().getChatId();</span>
-	    try{
-<span class="nc" id="L45">            String translatedRes = getTranslatedContent(parseMessageText(message_text).get(&quot;lang&quot;),parseMessageText(message_text).get(&quot;word&quot;));</span>
-<span class="nc" id="L46">            SendMessage message = new SendMessage()</span>
-<span class="nc" id="L47">                    .setChatId(chat_id)</span>
-<span class="nc" id="L48">                    .setText(translatedRes);</span>
-<span class="nc" id="L49">            execute(message);</span>
-<span class="nc" id="L50">        }catch (TelegramApiException e){</span>
-<span class="nc" id="L51">	        e.printStackTrace();</span>
-<span class="nc" id="L52">        }catch (IOException e) {</span>
-<span class="nc" id="L53">            e.printStackTrace();</span>
-<span class="nc" id="L54">        } catch (Exception e) {</span>
-<span class="nc" id="L55">            e.printStackTrace();</span>
-<span class="nc" id="L56">        }</span>
+<span class="nc" id="L46">		long chat_id = update.getMessage().getChatId();</span>
+<span class="nc" id="L47">		String message_text = update.getMessage().getText();</span>
+<span class="nc bnc" id="L48" title="All 4 branches missed.">		if (!langToTranslate.equals(&quot; &quot;) &amp;&amp; update.getMessage().hasText()){</span>
+			try{
+<span class="nc" id="L50">				String translatedRes = getTranslatedContent(langToTranslate, message_text);</span>
+<span class="nc" id="L51">				SendMessage message = new SendMessage()</span>
+<span class="nc" id="L52">						.setChatId(chat_id)</span>
+<span class="nc" id="L53">						.setText(translatedRes);</span>
+<span class="nc" id="L54">				execute(message);</span>
+<span class="nc" id="L55">			}catch (TelegramApiException e){</span>
+<span class="nc" id="L56">				e.printStackTrace();</span>
+<span class="nc" id="L57">			}catch (IOException e) {</span>
+<span class="nc" id="L58">				e.printStackTrace();</span>
+<span class="nc" id="L59">			} catch (Exception e) {</span>
+<span class="nc" id="L60">				e.printStackTrace();</span>
+<span class="nc" id="L61">			}</span>
+		} else{
+			try{
+<span class="nc" id="L64">				SendMessage message = new SendMessage()</span>
+<span class="nc" id="L65">						.setChatId(chat_id)</span>
+<span class="nc" id="L66">						.setText(&quot;Язык перевода не задан :(\n Нажмите /start&quot;);</span>
+<span class="nc" id="L67">				execute(message);</span>
+<span class="nc" id="L68">			}catch (TelegramApiException e){</span>
+<span class="nc" id="L69">				e.printStackTrace();</span>
+<span class="nc" id="L70">			}</span>
+		}
 
-<span class="nc" id="L58">    }</span>
+
+<span class="nc" id="L74">    }</span>
 
 	private void StartHelper(Update update) {
-<span class="nc" id="L61">		long chat_id = update.getCallbackQuery().getMessage().getChatId();</span>
-<span class="nc" id="L62">        String answer = &quot;*Если хочешь воспользоваться моими услугами, то отправь мне сообщения вида:*\n\r*lang1-lang2 word-to-translate*\n\r*Например:*\n\r*english-russian hello-world*&quot;;</span>
-<span class="nc" id="L63">        SendMessage message = new SendMessage()</span>
-<span class="nc" id="L64">                .setChatId(chat_id)</span>
-<span class="nc" id="L65">                .setText(answer)</span>
-<span class="nc" id="L66">                .enableMarkdown(true);</span>
+<span class="nc" id="L77">		long chat_id = update.getCallbackQuery().getMessage().getChatId();</span>
+<span class="nc" id="L78">		String answer = &quot;*Выберете язык:*&quot;;</span>
+<span class="nc" id="L79">        SendMessage message = new SendMessage()</span>
+<span class="nc" id="L80">                .setChatId(chat_id)</span>
+<span class="nc" id="L81">                .setText(answer)</span>
+<span class="nc" id="L82">                .enableMarkdown(true);</span>
+
+<span class="nc" id="L84">        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();</span>
+<span class="nc" id="L85">        List&lt;List&lt;InlineKeyboardButton&gt;&gt; rowsInLine = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L86">        List&lt;InlineKeyboardButton&gt; rowInLine = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L88">        rowInLine.add(new InlineKeyboardButton().setText(&quot;️\uD83C\uDDEC\uD83C\uDDE7Английский - Русский\uD83C\uDDF7\uD83C\uDDFA️&quot;).setCallbackData(&quot;english-russian&quot;));</span>
+<span class="nc" id="L89">        rowInLine.add(new InlineKeyboardButton().setText(&quot;️\uD83C\uDDF7\uD83C\uDDFAРусский - Английский\uD83C\uDDEC\uD83C\uDDE7️&quot;).setCallbackData(&quot;russian-english&quot;));</span>
+<span class="nc" id="L90">        rowsInLine.add(rowInLine);</span>
+<span class="nc" id="L91">        markupInline.setKeyboard(rowsInLine);</span>
+<span class="nc" id="L92">        message.setReplyMarkup(markupInline);</span>
         try {
-<span class="nc" id="L68">            execute(message);</span>
-<span class="nc" id="L69">        } catch (TelegramApiException e) {</span>
-<span class="nc" id="L70">            e.printStackTrace();</span>
-<span class="nc" id="L71">        }</span>
-<span class="nc" id="L72">	}</span>
+<span class="nc" id="L94">            execute(message);</span>
+<span class="nc" id="L95">        } catch (TelegramApiException e) {</span>
+<span class="nc" id="L96">            e.printStackTrace();</span>
+<span class="nc" id="L97">        }</span>
+<span class="nc" id="L98">	}</span>
 
 	private void StartCommand(Update update){
-<span class="nc bnc" id="L75" title="All 4 branches missed.">		if (update.hasMessage() || update.getMessage().hasText()) {</span>
-<span class="nc" id="L76">		    String toSend = &quot;*Привет!*\uD83C\uDF38 \n\r_Я умею умею делать практически все то же самое что и сайт reverso-context_\n\r_Для продолжения клацни на кнопку ниже!_&quot;;</span>
-<span class="nc" id="L77">			SendMessage message = new SendMessage()</span>
-<span class="nc" id="L78">					.setChatId(update.getMessage().getChatId())</span>
-<span class="nc" id="L79">					.setText(toSend)</span>
-<span class="nc" id="L80">                    .enableMarkdown(true);</span>
+<span class="nc bnc" id="L101" title="All 4 branches missed.">		if (update.hasMessage() || update.getMessage().hasText()) {</span>
+<span class="nc" id="L102">		    String toSend = &quot;*Привет!*\uD83C\uDF38 \n\r_Я умею умею делать практически все то же самое что и сайт reverso-context_\n\r*Если хочешь воспользоваться моими услугами, то для начала выбери язык для перевода, а потом введи слово или фразу, которую необходимо перевести*&quot;;</span>
+<span class="nc" id="L103">			SendMessage message = new SendMessage()</span>
+<span class="nc" id="L104">					.setChatId(update.getMessage().getChatId())</span>
+<span class="nc" id="L105">					.setText(toSend)</span>
+<span class="nc" id="L106">                    .enableMarkdown(true);</span>
 
-<span class="nc" id="L82">			InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();</span>
-<span class="nc" id="L83">			List&lt;List&lt;InlineKeyboardButton&gt;&gt; rowsInLine = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L84">			List&lt;InlineKeyboardButton&gt; rowInLine = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L85">			rowInLine.add(new InlineKeyboardButton().setText(&quot;▶️Продолжить◀️&quot;).setCallbackData(&quot;choose-lang&quot;));</span>
-<span class="nc" id="L86">			rowsInLine.add(rowInLine);</span>
-<span class="nc" id="L87">			markupInline.setKeyboard(rowsInLine);</span>
-<span class="nc" id="L88">			message.setReplyMarkup(markupInline);</span>
+<span class="nc" id="L108">			InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();</span>
+<span class="nc" id="L109">			List&lt;List&lt;InlineKeyboardButton&gt;&gt; rowsInLine = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L110">			List&lt;InlineKeyboardButton&gt; rowInLine = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L111">			rowInLine.add(new InlineKeyboardButton().setText(&quot;▶️Список доступных языков◀️&quot;).setCallbackData(&quot;lang-list&quot;));</span>
+<span class="nc" id="L112">			rowsInLine.add(rowInLine);</span>
+<span class="nc" id="L113">			markupInline.setKeyboard(rowsInLine);</span>
+<span class="nc" id="L114">			message.setReplyMarkup(markupInline);</span>
 			try{
-<span class="nc" id="L90">				execute(message);</span>
-<span class="nc" id="L91">			} catch (TelegramApiException ex){</span>
-<span class="nc" id="L92">				ex.printStackTrace();</span>
-<span class="nc" id="L93">			}</span>
+<span class="nc" id="L116">				execute(message);</span>
+<span class="nc" id="L117">			} catch (TelegramApiException ex){</span>
+<span class="nc" id="L118">				ex.printStackTrace();</span>
+<span class="nc" id="L119">			}</span>
 		}
-<span class="nc" id="L95">	}</span>
+<span class="nc" id="L121">	}</span>
 
 	private void HelpCommand(Update update){
-<span class="nc" id="L98">		long chat_id = update.getMessage().getChatId();</span>
-<span class="nc" id="L99">		String text = &quot;Пока что можно возспоьзоваться только коммандой /start и /help\n\rНо всё ещё впереди!&quot;;</span>
-<span class="nc" id="L100">		SendMessage send = new SendMessage()</span>
-<span class="nc" id="L101">				.setChatId(chat_id)</span>
-<span class="nc" id="L102">				.setText(text)</span>
-<span class="nc" id="L103">                .enableMarkdown(true);</span>
+<span class="nc" id="L124">		long chat_id = update.getMessage().getChatId();</span>
+<span class="nc" id="L125">		String text = &quot;Пока что можно возспоьзоваться только коммандой /start и /help\n\rНо всё ещё впереди!&quot;;</span>
+<span class="nc" id="L126">		SendMessage send = new SendMessage()</span>
+<span class="nc" id="L127">				.setChatId(chat_id)</span>
+<span class="nc" id="L128">				.setText(text)</span>
+<span class="nc" id="L129">                .enableMarkdown(true);</span>
 
 		try{
-<span class="nc" id="L106">			execute(send);</span>
-<span class="nc" id="L107">		} catch (TelegramApiException ex){</span>
-<span class="nc" id="L108">			ex.printStackTrace();</span>
-<span class="nc" id="L109">		}</span>
-<span class="nc" id="L110">	}</span>
+<span class="nc" id="L132">			execute(send);</span>
+<span class="nc" id="L133">		} catch (TelegramApiException ex){</span>
+<span class="nc" id="L134">			ex.printStackTrace();</span>
+<span class="nc" id="L135">		}</span>
+<span class="nc" id="L136">	}</span>
+
+	private void TranslateHelper(Update update) {
+<span class="nc" id="L139">		long chat_id = update.getCallbackQuery().getMessage().getChatId();</span>
+<span class="nc" id="L140">		String call_data = update.getCallbackQuery().getData();</span>
+<span class="nc" id="L141">		langToTranslate = call_data;</span>
+
+<span class="nc" id="L143">		String answer = &quot;*Введите фразу для перевода:*&quot;;</span>
+<span class="nc" id="L144">		SendMessage send = new SendMessage()</span>
+<span class="nc" id="L145">				.setChatId(chat_id)</span>
+<span class="nc" id="L146">				.setText(answer)</span>
+<span class="nc" id="L147">				.enableMarkdown(true);</span>
+
+		try{
+<span class="nc" id="L150">			execute(send);</span>
+<span class="nc" id="L151">		} catch (TelegramApiException ex){</span>
+<span class="nc" id="L152">			ex.printStackTrace();</span>
+<span class="nc" id="L153">		}</span>
+<span class="nc" id="L154">	}</span>
 
 	public String getBotUsername() {
-<span class="nc" id="L113">		return &quot;Training&quot;;</span>
+<span class="nc" id="L157">		return &quot;Training&quot;;</span>
 	}
 
 	public String getBotToken() {
-<span class="nc" id="L117">		return &quot;592148368:AAE59ohkGYvBjkJLt-zrmmtPKYANRtSrTYY&quot;;</span>
+<span class="nc" id="L161">		return &quot;592148368:AAE59ohkGYvBjkJLt-zrmmtPKYANRtSrTYY&quot;;</span>
 	}
 
 	private HashMap&lt;String,String&gt; parseMessageText(String message) {
-<span class="nc" id="L121">		HashMap&lt;String,String&gt; params = new HashMap&lt;&gt;();</span>
-<span class="nc" id="L122">		String[] paramsArr = message.split(&quot; &quot;);</span>
-<span class="nc" id="L123">		params.put(&quot;lang&quot;, paramsArr[0].trim());</span>
-<span class="nc" id="L124">		params.put(&quot;word&quot;, paramsArr[1].trim());</span>
-<span class="nc" id="L125">		return params;</span>
+<span class="nc" id="L165">		HashMap&lt;String,String&gt; params = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L166">		String[] paramsArr = message.split(&quot; &quot;);</span>
+<span class="nc" id="L167">		params.put(&quot;lang&quot;, paramsArr[0].trim());</span>
+<span class="nc" id="L168">		params.put(&quot;word&quot;, paramsArr[1].trim());</span>
+<span class="nc" id="L169">		return params;</span>
 	}
 
 	private String getTranslatedContent(String lang, String word) throws IOException, Exception{
-<span class="nc" id="L129">		Parser parser = new Parser(lang, word);</span>
-<span class="nc" id="L130">		return parser.getText().getFinalText();</span>
+<span class="nc" id="L173">		Parser parser = new Parser(lang, word);</span>
+<span class="nc" id="L174">		return parser.getText().getFinalText();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

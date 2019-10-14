@@ -18,7 +18,7 @@ public class Parser {
 	private String lang_pref;
 
 	public Parser(String lang, String wo) {
-		word = wo.trim();
+		word = UrlSpaceEncode(wo.trim());
 		lang_pref = lang.trim();
 	}
 
@@ -30,7 +30,7 @@ public class Parser {
 	}
 
 	private HashMap<String, Elements> parse() throws IOException{
-		HashMap<String, Elements> elements = new HashMap<String, Elements>();
+		HashMap<String, Elements> elements = new HashMap<>();
 		Document doc = Jsoup.connect("https://context.reverso.net/translation/"+lang_pref+"/"+word).get();  
 		Elements translate = doc.select("div#translations-content");  
 		Elements nativeSentence = doc.select("div.src.ltr");
@@ -42,8 +42,12 @@ public class Parser {
 		return elements;
 	}
 
+	private String UrlSpaceEncode(String str) {
+		return str.replace(" ", "-");
+	}
+
 	private HashMap<String, String> processData(HashMap<String, Elements> elems){
-		HashMap<String, String> results = new HashMap<String, String>();
+		HashMap<String, String> results = new HashMap<>();
 		String finalSentence = "";
 
 		String translate = elems.get("translate").text();

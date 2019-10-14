@@ -1,6 +1,5 @@
 package com.yevheniikukhol.reversoContextBot.telegram;
 
-import com.yevheniikukhol.reversoContextBot.telegram.commands.Start;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -13,6 +12,7 @@ import java.io.IOException;
 import com.yevheniikukhol.reversoContextBot.DB.MyDatabase;
 
 public class MyBot extends TelegramLongPollingBot {
+	private String langToTranslate = "";
 
 	public void onUpdateReceived(Update update){
 		if (update.hasMessage() && update.getMessage().hasText()) {
@@ -31,39 +31,62 @@ public class MyBot extends TelegramLongPollingBot {
 		}else if (update.hasCallbackQuery()){
             String call_data = update.getCallbackQuery().getData();
             switch (call_data){
-                case "choose-lang":
+                case "lang-list":
                     StartHelper(update);
                     break;
+				default:
+					TranslateHelper(update);
+					break;
             }
 		}
 	}
 
 	private void Translate(Update update){
-	    String message_text = update.getMessage().getText();
-	    long chat_id = update.getMessage().getChatId();
-	    try{
-            String translatedRes = getTranslatedContent(parseMessageText(message_text).get("lang"),parseMessageText(message_text).get("word"));
-            SendMessage message = new SendMessage()
-                    .setChatId(chat_id)
-                    .setText(translatedRes);
-            execute(message);
-        }catch (TelegramApiException e){
-	        e.printStackTrace();
-        }catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		long chat_id = update.getMessage().getChatId();
+		String message_text = update.getMessage().getText();
+		if (!langToTranslate.equals(" ") && update.getMessage().hasText()){
+			try{
+				String translatedRes = getTranslatedContent(langToTranslate, message_text);
+				SendMessage message = new SendMessage()
+						.setChatId(chat_id)
+						.setText(translatedRes);
+				execute(message);
+			}catch (TelegramApiException e){
+				e.printStackTrace();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else{
+			try{
+				SendMessage message = new SendMessage()
+						.setChatId(chat_id)
+						.setText("Язык перевода не задан :(\n Нажмите /start");
+				execute(message);
+			}catch (TelegramApiException e){
+				e.printStackTrace();
+			}
+		}
+
 
     }
 
 	private void StartHelper(Update update) {
 		long chat_id = update.getCallbackQuery().getMessage().getChatId();
-        String answer = "*Если хочешь воспользоваться моими услугами, то отправь мне сообщения вида:*\n\r*lang1-lang2 word-to-translate*\n\r*Например:*\n\r*english-russian hello-world*";
+		String answer = "*Выберете язык:*";
         SendMessage message = new SendMessage()
                 .setChatId(chat_id)
                 .setText(answer)
                 .enableMarkdown(true);
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
+        List<InlineKeyboardButton> rowInLine = new ArrayList<>();
+
+        rowInLine.add(new InlineKeyboardButton().setText("️\uD83C\uDDEC\uD83C\uDDE7Английский - Русский\uD83C\uDDF7\uD83C\uDDFA️").setCallbackData("english-russian"));
+        rowInLine.add(new InlineKeyboardButton().setText("️\uD83C\uDDF7\uD83C\uDDFAРусский - Английский\uD83C\uDDEC\uD83C\uDDE7️").setCallbackData("russian-english"));
+        rowsInLine.add(rowInLine);
+        markupInline.setKeyboard(rowsInLine);
+        message.setReplyMarkup(markupInline);
         try {
             execute(message);
         } catch (TelegramApiException e) {
@@ -73,13 +96,7 @@ public class MyBot extends TelegramLongPollingBot {
 
 	private void StartCommand(Update update){
 		if (update.hasMessage() || update.getMessage().hasText()) {
-		    String toSend = "*Привет!*\uD83C\uDF38 \n\r_Я умею умею делать практически все то же самое что и сайт reverso-context_\n\r*Если хочешь воспользоваться моими услугами, то отправь мне сообщения вида:*" +
-                    "\n" +
-                    "*lang1-lang2 word-to-translate*" +
-                    "\n" +
-                    "*Например:*" +
-                    "\n" +
-                    "*english-russian hello-world*";
+		    String toSend = "*Привет!*\uD83C\uDF38 \n\r*Я умею делать практически все то же самое что и сайт reverso-context*\n\r*Если хочешь воспользоваться моими услугами, то для начала выбери язык для перевода, а потом введи слово или фразу, которую необходимо перевести*";
 			SendMessage message = new SendMessage()
 					.setChatId(update.getMessage().getChatId())
 					.setText(toSend)
@@ -88,7 +105,7 @@ public class MyBot extends TelegramLongPollingBot {
 			InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
 			List<List<InlineKeyboardButton>> rowsInLine = new ArrayList<>();
 			List<InlineKeyboardButton> rowInLine = new ArrayList<>();
-			rowInLine.add(new InlineKeyboardButton().setText("▶️Список доступных языков◀️").setCallbackData("choose-lang"));
+			rowInLine.add(new InlineKeyboardButton().setText("▶️Список доступных языков◀️").setCallbackData("lang-list"));
 			rowsInLine.add(rowInLine);
 			markupInline.setKeyboard(rowsInLine);
 			message.setReplyMarkup(markupInline);
@@ -115,6 +132,23 @@ public class MyBot extends TelegramLongPollingBot {
 		}
 	}
 
+	private void TranslateHelper(Update update) {
+		long chat_id = update.getCallbackQuery().getMessage().getChatId();
+		langToTranslate = update.getCallbackQuery().getData();
+
+		String answer = "*Введите фразу для перевода:*";
+		SendMessage send = new SendMessage()
+				.setChatId(chat_id)
+				.setText(answer)
+				.enableMarkdown(true);
+
+		try{
+			execute(send);
+		} catch (TelegramApiException ex){
+			ex.printStackTrace();
+		}
+	}
+
 	public String getBotUsername() {
 		return "Training";
 	}
@@ -131,7 +165,7 @@ public class MyBot extends TelegramLongPollingBot {
 		return params;
 	}
 
-	private String getTranslatedContent(String lang, String word) throws IOException, Exception{
+	private String getTranslatedContent(String lang, String word) throws Exception{
 		Parser parser = new Parser(lang, word);
 		return parser.getText().getFinalText();
 	}

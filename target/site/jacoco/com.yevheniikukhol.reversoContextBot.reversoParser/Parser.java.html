@@ -18,7 +18,7 @@ public class Parser {
 	private String lang_pref;
 
 <span class="nc" id="L20">	public Parser(String lang, String wo) {</span>
-<span class="nc" id="L21">		word = wo.trim();</span>
+<span class="nc" id="L21">		word = UrlSpaceEncode(wo.trim());</span>
 <span class="nc" id="L22">		lang_pref = lang.trim();</span>
 <span class="nc" id="L23">	}</span>
 
@@ -42,26 +42,30 @@ public class Parser {
 <span class="nc" id="L42">		return elements;</span>
 	}
 
-	private HashMap&lt;String, String&gt; processData(HashMap&lt;String, Elements&gt; elems){
-<span class="nc" id="L46">		HashMap&lt;String, String&gt; results = new HashMap&lt;String, String&gt;();</span>
-<span class="nc" id="L47">		String finalSentence = &quot;&quot;;</span>
+	private String UrlSpaceEncode(String str) {
+<span class="nc" id="L46">		return str.replace(&quot; &quot;, &quot;-&quot;);</span>
+	}
 
-<span class="nc" id="L49">		String translate = elems.get(&quot;translate&quot;).text();</span>
-<span class="nc" id="L50">		Iterator&lt;Element&gt; nativeIteratorSentence = elems.get(&quot;examplesNative&quot;).iterator();</span>
-<span class="nc" id="L51">		Iterator&lt;Element&gt; translatedIteratorSentence = elems.get(&quot;examplesTrans&quot;).iterator();</span>
-<span class="nc" id="L52">		int i = 0;</span>
-<span class="nc bnc" id="L53" title="All 4 branches missed.">		while(nativeIteratorSentence.hasNext() &amp;&amp; translatedIteratorSentence.hasNext()){</span>
-<span class="nc bnc" id="L54" title="All 2 branches missed.">			if (i &gt; 5) {</span>
-<span class="nc" id="L55">				break;</span>
+	private HashMap&lt;String, String&gt; processData(HashMap&lt;String, Elements&gt; elems){
+<span class="nc" id="L50">		HashMap&lt;String, String&gt; results = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L51">		String finalSentence = &quot;&quot;;</span>
+
+<span class="nc" id="L53">		String translate = elems.get(&quot;translate&quot;).text();</span>
+<span class="nc" id="L54">		Iterator&lt;Element&gt; nativeIteratorSentence = elems.get(&quot;examplesNative&quot;).iterator();</span>
+<span class="nc" id="L55">		Iterator&lt;Element&gt; translatedIteratorSentence = elems.get(&quot;examplesTrans&quot;).iterator();</span>
+<span class="nc" id="L56">		int i = 0;</span>
+<span class="nc bnc" id="L57" title="All 4 branches missed.">		while(nativeIteratorSentence.hasNext() &amp;&amp; translatedIteratorSentence.hasNext()){</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">			if (i &gt; 5) {</span>
+<span class="nc" id="L59">				break;</span>
 			}
-<span class="nc" id="L57">			finalSentence += &quot;💬&quot; +nativeIteratorSentence.next().text() + &quot;\n\r&quot;;</span>
-<span class="nc" id="L58">			finalSentence += &quot;🗨&quot; +translatedIteratorSentence.next().text() + &quot;\n\r&quot; + &quot;\n\r&quot;;</span>
-<span class="nc" id="L59">			i++;</span>
+<span class="nc" id="L61">			finalSentence += &quot;💬&quot; +nativeIteratorSentence.next().text() + &quot;\n\r&quot;;</span>
+<span class="nc" id="L62">			finalSentence += &quot;🗨&quot; +translatedIteratorSentence.next().text() + &quot;\n\r&quot; + &quot;\n\r&quot;;</span>
+<span class="nc" id="L63">			i++;</span>
 		}
 
-<span class="nc" id="L62">		results.put(&quot;translate&quot;, &quot;📢&quot; + translate + &quot;📢&quot; + &quot;\n\r&quot;);</span>
-<span class="nc" id="L63">		results.put(&quot;examples&quot;, finalSentence);</span>
-<span class="nc" id="L64">		return results;</span>
+<span class="nc" id="L66">		results.put(&quot;translate&quot;, &quot;📢&quot; + translate + &quot;📢&quot; + &quot;\n\r&quot;);</span>
+<span class="nc" id="L67">		results.put(&quot;examples&quot;, finalSentence);</span>
+<span class="nc" id="L68">		return results;</span>
 	}
 
 
