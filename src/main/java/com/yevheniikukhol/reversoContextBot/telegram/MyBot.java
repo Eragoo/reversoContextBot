@@ -45,15 +45,14 @@ public class MyBot extends TelegramLongPollingBot {
 		long chat_id = update.getMessage().getChatId();
 		String message_text = update.getMessage().getText();
 		if (!langToTranslate.equals(" ") && update.getMessage().hasText()){
+			String translatedRes = getTranslatedContent(langToTranslate, message_text);
+			SendMessage message = new SendMessage()
+					.setChatId(chat_id)
+					.setText(translatedRes)
+					.enableMarkdown(true);
 			try{
-				String translatedRes = getTranslatedContent(langToTranslate, message_text);
-				SendMessage message = new SendMessage()
-						.setChatId(chat_id)
-						.setText(translatedRes);
 				execute(message);
 			}catch (TelegramApiException e){
-				e.printStackTrace();
-			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else{
@@ -165,8 +164,13 @@ public class MyBot extends TelegramLongPollingBot {
 		return params;
 	}
 
-	private String getTranslatedContent(String lang, String word) throws Exception{
+	private String getTranslatedContent(String lang, String word){
 		Parser parser = new Parser(lang, word);
-		return parser.getText().getFinalText();
+		try{
+			return parser.getText().getFinalText();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "*В нашей базе не содержится контекста для данной фразы.\nПопробуйте другую формулировку*";
+		}
 	}
 }

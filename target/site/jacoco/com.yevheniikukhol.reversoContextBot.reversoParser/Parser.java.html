@@ -30,7 +30,7 @@ public class Parser {
 	}
 
 	private HashMap&lt;String, Elements&gt; parse() throws IOException{
-<span class="nc" id="L33">		HashMap&lt;String, Elements&gt; elements = new HashMap&lt;String, Elements&gt;();</span>
+<span class="nc" id="L33">		HashMap&lt;String, Elements&gt; elements = new HashMap&lt;&gt;();</span>
 <span class="nc" id="L34">		Document doc = Jsoup.connect(&quot;https://context.reverso.net/translation/&quot;+lang_pref+&quot;/&quot;+word).get();  </span>
 <span class="nc" id="L35">		Elements translate = doc.select(&quot;div#translations-content&quot;);  </span>
 <span class="nc" id="L36">		Elements nativeSentence = doc.select(&quot;div.src.ltr&quot;);</span>
@@ -47,7 +47,7 @@ public class Parser {
 	}
 
 	private HashMap&lt;String, String&gt; processData(HashMap&lt;String, Elements&gt; elems){
-<span class="nc" id="L50">		HashMap&lt;String, String&gt; results = new HashMap&lt;String, String&gt;();</span>
+<span class="nc" id="L50">		HashMap&lt;String, String&gt; results = new HashMap&lt;&gt;();</span>
 <span class="nc" id="L51">		String finalSentence = &quot;&quot;;</span>
 
 <span class="nc" id="L53">		String translate = elems.get(&quot;translate&quot;).text();</span>
