@@ -1,4 +1,5 @@
-/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/yevheniikukhol/reversoContextBot/telegram/MyBot.java
-/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/yevheniikukhol/reversoContextBot/reversoParser/Parser.java
-/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/yevheniikukhol/reversoContextBot/reversoParser/Text.java
-/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/yevheniikukhol/reversoContextBot/App.java
+/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/Erag0/reversoContextBot/App.java
+/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/Erag0/reversoContextBot/telegram/ReversoContextBot.java
+/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/Erag0/reversoContextBot/reversoParser/Parser.java
+/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/Erag0/reversoContextBot/DB/MyDatabase.java
+/Users/macbook/Documents/programming/java_project/reversoContextTelegramBot/reversoContextBot/src/main/java/com/Erag0/reversoContextBot/reversoParser/Text.java

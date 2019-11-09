@@ -1,5 +1,10 @@
-com/yevheniikukhol/reversoContextBot/DB/MyDatabase.class
-com/yevheniikukhol/reversoContextBot/telegram/MyBot.class
-com/yevheniikukhol/reversoContextBot/reversoParser/Text.class
-com/yevheniikukhol/reversoContextBot/App.class
-com/yevheniikukhol/reversoContextBot/reversoParser/Parser.class
+com/Erag0/reversoContextBot/App.class
+com/Erag0/reversoContextBot/telegram/ReversoContextBot.class
+com/Erag0/reversoContextBot/reversoParser/Text.class
+com/Erag0/reversoContextBot/reversoParser/Parser.class
+com/Erag0/reversoContextBot/telegram/Commands/EmptyCommand.class
+com/Erag0/reversoContextBot/DB/MyDatabase.class
+com/Erag0/reversoContextBot/telegram/Commands/Command.class
+com/Erag0/reversoContextBot/telegram/CommandController.class
+com/Erag0/reversoContextBot/telegram/Commands/HelpCommand.class
+com/Erag0/reversoContextBot/Factories/CommandFactoryBehavior.class
