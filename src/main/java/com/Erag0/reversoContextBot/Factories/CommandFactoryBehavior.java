@@ -1,8 +1,8 @@
-package com.Erag0.reversoContextBot.Factories;
+package com.Erag0.ReversoContextBot.Factories;
 
-import com.Erag0.reversoContextBot.telegram.Commands.Command;
-import com.Erag0.reversoContextBot.telegram.Commands.EmptyCommand;
-import com.Erag0.reversoContextBot.telegram.Commands.HelpCommand;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.Command;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.EmptyCommand;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.HelpCommand;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
 
