@@ -5,29 +5,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Users", schema = "main", catalog = "")
 public class UsersEntity {
-    private Short id;
-    private String chatId;
+    private long chatId;
     private String username;
     private String command;
     private String language;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    public Short getId() {
-        return id;
-    }
-
-    public void setId(Short id) {
-        this.id = id;
-    }
-
-    @Basic
-    @Column(name = "chat_id", nullable = true, length = -1)
-    public String getChatId() {
+    @Column(name = "chat_id", nullable = false)
+    public long getChatId() {
         return chatId;
     }
 
-    public void setChatId(String chatId) {
+    public void setChatId(long chatId) {
         this.chatId = chatId;
     }
 
@@ -68,8 +57,7 @@ public class UsersEntity {
 
         UsersEntity that = (UsersEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (chatId != null ? !chatId.equals(that.chatId) : that.chatId != null) return false;
+        if (chatId != that.chatId) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (command != null ? !command.equals(that.command) : that.command != null) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
@@ -79,8 +67,7 @@ public class UsersEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (chatId != null ? chatId.hashCode() : 0);
+        int result = (int) chatId;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (command != null ? command.hashCode() : 0);
         result = 31 * result + (language != null ? language.hashCode() : 0);

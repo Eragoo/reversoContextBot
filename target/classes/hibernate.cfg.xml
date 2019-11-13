@@ -10,7 +10,8 @@
         </property>
         <property name="connection.driver_class">org.sqlite.JDBC</property>
         <mapping class="com.Erag0.ReversoContextBot.Entity.UsersEntity"/>
-<!--        <mapping resource="UsersEntity.hbm.xml"/>-->
+        <mapping resource="UsersEntity.hbm.xml"/>
+        <!--        <mapping resource="UsersEntity.hbm.xml"/>-->
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

@@ -15,13 +15,13 @@ public class HelpCommand implements Command {
     public HelpCommand(TelegramBot bot, Update update) {
        this.bot = bot;
        this.update = update;
-        storage = new Storage(update);
+       storage = new Storage(update);
     }
 
     public void execute() {
-        storage.StoreCommand(this.toString());
-        bot.execute(new SendMessage(update.message().chat().id(), "Command " + NAME + " stored!"));
-
+        String command = storage.RestoreCommand();
+        bot.execute(new SendMessage(update.message().chat().id(), "Restored command : " + command + ". Command " + NAME + " stored!"));
+        storage.StoreCommand(NAME);
     }
 
     public String toString() {

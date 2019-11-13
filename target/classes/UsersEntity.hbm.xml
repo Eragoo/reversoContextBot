@@ -5,12 +5,9 @@
 <hibernate-mapping>
 
     <class name="com.Erag0.ReversoContextBot.Entity.UsersEntity" table="Users" schema="main">
-        <id name="id">
-            <column name="id" sql-type="integer" not-null="true"/>
+        <id name="chatId">
+            <column name="chat_id" sql-type="integer"/>
         </id>
-        <property name="chatId">
-            <column name="chat_id" sql-type="text" not-null="true"/>
-        </property>
         <property name="username">
             <column name="username" sql-type="text" not-null="true"/>
         </property>

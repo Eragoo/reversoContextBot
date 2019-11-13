@@ -5,30 +5,64 @@ import com.Erag0.ReversoContextBot.Factories.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 public class DbClass {
-<span class="nc" id="L10">    private static DbClass dbClass = new DbClass();</span>
-<span class="nc" id="L11">    private static SessionFactory sessionFactory = new HibernateSessionFactory().getSessionFactory();</span>
+<span class="nc" id="L11">    private static DbClass dbClass = new DbClass();</span>
+<span class="nc" id="L12">    private static SessionFactory sessionFactory = new HibernateSessionFactory().getSessionFactory();</span>
 
     private DbClass() { }
 
     public static DbClass getInstance() {
-<span class="nc" id="L16">        return dbClass;</span>
+<span class="nc" id="L17">        return dbClass;</span>
     }
 
     public void AddUser(long chat_id, String username, String command, String language) {
-<span class="nc" id="L20">        UsersEntity user = new UsersEntity();</span>
-<span class="nc" id="L21">        user.setChatId(Long.toString(chat_id));</span>
-<span class="nc" id="L22">        user.setCommand(command);</span>
-<span class="nc" id="L23">        user.setLanguage(language);</span>
-<span class="nc" id="L24">        user.setUsername(username);</span>
+<span class="nc" id="L21">        UsersEntity user = new UsersEntity();</span>
+<span class="nc" id="L22">        user.setChatId(chat_id);</span>
+<span class="nc" id="L23">        user.setCommand(command);</span>
+<span class="nc" id="L24">        user.setLanguage(language);</span>
+<span class="nc" id="L25">        user.setUsername(username);</span>
 
-<span class="nc" id="L26">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L27">        Transaction transaction = null;</span>
-<span class="nc" id="L28">        transaction = session.beginTransaction();</span>
-<span class="nc" id="L29">        session.save(user);</span>
-<span class="nc" id="L30">        transaction.commit();</span>
-<span class="nc" id="L31">        session.close();</span>
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L27">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L28">        Transaction transaction = null;</span>
+<span class="nc" id="L29">        transaction = session.beginTransaction();</span>
+<span class="nc" id="L30">        session.save(user);</span>
+<span class="nc" id="L31">        transaction.commit();</span>
+<span class="nc" id="L32">        session.close();</span>
+<span class="nc" id="L33">    }</span>
+
+    public void UpdateUser(long chat_id, String username, String command, String language) {
+<span class="nc" id="L36">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L37">        Transaction transaction = null;</span>
+<span class="nc" id="L38">        transaction = session.beginTransaction();</span>
+
+<span class="nc" id="L40">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L41">        user.setCommand(command);</span>
+<span class="nc" id="L42">        session.update(user);</span>
+<span class="nc" id="L43">        transaction.commit();</span>
+<span class="nc" id="L44">        session.close();</span>
+<span class="nc" id="L45">    }</span>
+    public long Count(long chat_id) {
+<span class="nc" id="L47">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L48">        Query query =  session.createQuery(&quot;select count(*) from UsersEntity Users where Users.chatId=:chat_id&quot;);</span>
+<span class="nc" id="L49">        query.setParameter(&quot;chat_id&quot;, chat_id);</span>
+<span class="nc" id="L50">        Long count = (Long)query.uniqueResult();</span>
+<span class="nc" id="L51">        session.close();</span>
+<span class="nc" id="L52">        return count;</span>
+    }
+
+    public String RestoreCommand(long chat_id) {
+<span class="nc" id="L56">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L57">        Transaction transaction = null;</span>
+<span class="nc" id="L58">        transaction = session.beginTransaction();</span>
+
+<span class="nc" id="L60">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L61">        session.update(user);</span>
+<span class="nc" id="L62">        transaction.commit();</span>
+<span class="nc" id="L63">        session.close();</span>
+
+<span class="nc" id="L65">        return user.getCommand();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,10 +1,6 @@
 package com.Erag0.ReversoContextBot.Util;
 
-
 import com.pengrad.telegrambot.model.Update;
-import org.sqlite.core.DB;
-
-import java.sql.SQLException;
 
 public class Storage {
     private Update update;
@@ -19,22 +15,32 @@ public class Storage {
         long chat_id = update.message().chat().id();
         String username = update.message().chat().username();
         String lang = "Undefined";
-        System.out.println("Trying add user!");
-        dbClass.AddUser(chat_id, username, command, lang);
-        System.out.println("User added!");
+
+        if (isSet(chat_id)) {
+            System.out.println("Trying update user!");
+            dbClass.UpdateUser(chat_id, username, command, lang);
+            System.out.println("User updated!");
+
+        } else {
+            System.out.println("Trying add user!");
+            dbClass.AddUser(chat_id, username, command, lang);
+            System.out.println("User added!");
+        }
     }
 
     public String RestoreCommand() {
-        String chat_id = update.message().chat().id().toString();
-        String command ="";
+        long chat_id = update.message().chat().id();
+        String command = dbClass.RestoreCommand(chat_id);
         return command;
     }
 
-
-    public boolean isSet(String where){
-
+    public boolean isSet(long chat_id){
+        System.out.println("Trying to calcualte count of users with this chat_id!");
+        long i = dbClass.Count(chat_id);
+        System.out.println("Count of records with that chat_id = " + i);
+        if (i != 0) {
+            return true;
+        }
         return false;
     }
-
-
 }
