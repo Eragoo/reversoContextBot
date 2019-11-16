@@ -9,8 +9,7 @@ public class HelpCommand implements Command {
     private static TelegramBot bot;
     private static Update update;
     private Storage storage;
-
-    private final String NAME = "/help";
+    public final String NAME = "/help";
 
     public HelpCommand(TelegramBot bot, Update update) {
        this.bot = bot;

@@ -1,6 +1,7 @@
 package com.Erag0.ReversoContextBot.TelegramBotCore;
 
 
+import com.Erag0.ReversoContextBot.Util.GetCommandFromMessage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
@@ -21,11 +22,11 @@ public class ReversoContextBot {
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
                 CommandController commandController = new CommandController(bot, update);
-                commandController.executeCommand("/start");
-                commandController.executeCommand("/help");
+                if (GetCommandFromMessage.isCommand(update.message().text())){
+                    commandController.executeCommand(GetCommandFromMessage.getCommand());
+                }
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
     }
-
 }

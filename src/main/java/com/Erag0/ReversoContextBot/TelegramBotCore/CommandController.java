@@ -9,7 +9,6 @@ import com.pengrad.telegrambot.model.Update;
 
 public class CommandController {
     CommandFactoryBehavior commandFactory;
-    Storage storage;
     public CommandController(TelegramBot bot, Update update) {
         commandFactory = new CommandFactoryBehavior(bot, update);
     }

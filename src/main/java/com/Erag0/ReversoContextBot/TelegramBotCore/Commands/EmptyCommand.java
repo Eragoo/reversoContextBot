@@ -7,6 +7,7 @@ import com.pengrad.telegrambot.request.SendMessage;
 public class EmptyCommand implements Command{
     private TelegramBot bot;
     private Update update;
+    public static final String NAME = "/empty";
     public EmptyCommand(TelegramBot bot, Update update) {
         this.bot = bot;
         this.update = update;

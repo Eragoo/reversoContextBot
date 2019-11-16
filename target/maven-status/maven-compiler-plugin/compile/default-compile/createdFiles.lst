@@ -10,6 +10,7 @@ com/Erag0/ReversoContextBot/Parser/Parser.class
 com/Erag0/ReversoContextBot/Factories/CommandFactoryBehavior.class
 com/Erag0/ReversoContextBot/Util/Storage.class
 com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.class
+com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.class
 com/Erag0/ReversoContextBot/Util/SQLiteDialect.class
 com/Erag0/ReversoContextBot/Parser/Text.class
 com/Erag0/ReversoContextBot/Entity/UsersEntity.class

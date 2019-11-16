@@ -7,12 +7,13 @@ import com.pengrad.telegrambot.request.SendMessage;
 public class EmptyCommand implements Command{
     private TelegramBot bot;
     private Update update;
-<span class="nc" id="L10">    public EmptyCommand(TelegramBot bot, Update update) {</span>
-<span class="nc" id="L11">        this.bot = bot;</span>
-<span class="nc" id="L12">        this.update = update;</span>
-<span class="nc" id="L13">    }</span>
+    public static final String NAME = &quot;/empty&quot;;
+<span class="nc" id="L11">    public EmptyCommand(TelegramBot bot, Update update) {</span>
+<span class="nc" id="L12">        this.bot = bot;</span>
+<span class="nc" id="L13">        this.update = update;</span>
+<span class="nc" id="L14">    }</span>
     public void execute() {
-<span class="nc" id="L15">        bot.execute(new SendMessage(update.message().chat().id(), &quot;default command&quot;));</span>
-<span class="nc" id="L16">    }</span>
+<span class="nc" id="L16">        bot.execute(new SendMessage(update.message().chat().id(), &quot;default command&quot;));</span>
+<span class="nc" id="L17">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
