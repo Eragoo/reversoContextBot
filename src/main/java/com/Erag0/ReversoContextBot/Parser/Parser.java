@@ -67,19 +67,4 @@ public class Parser {
 		results.put("examples", finalSentence);
 		return results;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

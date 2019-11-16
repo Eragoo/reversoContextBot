@@ -4,21 +4,30 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GetCommandFromMessage {
-    private static String command;
 
     public static boolean isCommand(String str) {
-        String trimmed = str.trim().toLowerCase();
-        Pattern p = Pattern.compile("(/\\S+)");
-        Matcher matcher = p.matcher(str);
-
-        if (matcher.find()) {
-            command = matcher.group(1);
-            return true;
+        if (str != null){
+            String trimmed = str.trim().toLowerCase();
+            Pattern p = Pattern.compile("(/\\S+)");
+            Matcher matcher = p.matcher(str);
+            if (matcher.find()) {
+                return true;
+            }
         }
         return false;
     }
 
-    public static String getCommand() {
+    public static String getCommand(String str) {
+        String command = "";
+        if (str != null){
+            String trimmed = str.trim().toLowerCase();
+            Pattern p = Pattern.compile("(/\\S+)");
+            Matcher matcher = p.matcher(str);
+            if (matcher.find()) {
+                command = matcher.group(1);
+            }
+        }
         return command;
     }
+
 }

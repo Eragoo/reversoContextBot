@@ -11,14 +11,36 @@ public class Storage {
         this.update = update;
     }
 
+    public String RestoreLang() {
+        long chat_id = update.message().chat().id();
+        String lang = dbClass.RestoreLang(chat_id);
+        return lang;
+    }
+
+    public void StoreLang(String lang) {
+        long chat_id = update.callbackQuery().from().id();
+        String username = update.callbackQuery().from().username();
+
+        if (isSet(chat_id)) {
+            System.out.println("Trying update user!");
+            dbClass.UpdateLang(chat_id, username, lang);
+            System.out.println("User updated!");
+
+        } else {
+            String command = "Undefined";
+            System.out.println("Trying add user!");
+            dbClass.AddUser(chat_id, username, command, lang);
+            System.out.println("User added!");
+        }
+    }
+
     public void StoreCommand(String command){
         long chat_id = update.message().chat().id();
         String username = update.message().chat().username();
         String lang = "Undefined";
-
         if (isSet(chat_id)) {
             System.out.println("Trying update user!");
-            dbClass.UpdateUser(chat_id, username, command, lang);
+            dbClass.UpdateCommand(chat_id, username, command, lang);
             System.out.println("User updated!");
 
         } else {
