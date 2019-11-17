@@ -9,7 +9,7 @@ import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 
 public class ReversoContextBot {
-    private static final String TOKEN = "";
+    private static final String TOKEN = "935814207:AAFhnRjU-veiPLG1AUTPFMsqIbX2fgvDoCw";
     private TelegramBot bot;
 
     public ReversoContextBot() {

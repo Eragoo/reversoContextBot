@@ -19,7 +19,7 @@ public class HelpCommand implements Command {
 <span class="nc" id="L19">    }</span>
 
     public void execute() {
-<span class="nc" id="L22">        bot.execute(new SendMessage(update.message().chat().id(), &quot;*Введите /start чтобы начать!*&quot;)</span>
+<span class="nc" id="L22">        bot.execute(new SendMessage(update.message().chat().id(), &quot;*Введите /start чтобы начать!*\n*_По всем вопросам обращайтесь к @Erag0Contactbot_&quot;)</span>
 <span class="nc" id="L23">        .parseMode(ParseMode.Markdown)</span>
                 );
 <span class="nc" id="L25">        storage.StoreCommand(NAME);</span>
