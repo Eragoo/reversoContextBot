@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="reversoContextBot" />
+        <module name="ReversoContextBot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="reversoContextBot" target="1.8" />
+      <module name="ReversoContextBot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
