@@ -5,33 +5,28 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.util.Scanner;
 import java.util.*;
-import java.io.*;
-import org.jsoup.HttpStatusException;
-import java.net.MalformedURLException; 
-import java.net.URLEncoder;
  
 public class Parser {  
 
 	private String word;
-	private String lang_pref;
+	private String lang;
 
-	public Parser(String lang, String wo) {
-		word = UrlSpaceEncode(wo.trim());
-		lang_pref = lang.trim();
+	public Parser(String lang, String word) {
+		this.word = UrlSpaceEncode(word.trim());
+		this.lang = lang.trim();
 	}
 
-	public Text getText() throws IOException{
-		Text text;
+	public String getText()throws IOException{
 		HashMap<String,String> parsedData = processData(parse());
-		text = new Text(parsedData.get("translate"),parsedData.get("examples"));
+		String text = new Text(parsedData.get("translate"),parsedData.get("examples")).getFinalText();
+
 		return text;
 	}
 
 	private HashMap<String, Elements> parse() throws IOException{
 		HashMap<String, Elements> elements = new HashMap<>();
-		Document doc = Jsoup.connect("https://context.reverso.net/translation/"+lang_pref+"/"+word).get();  
+		Document doc = Jsoup.connect("https://context.reverso.net/translation/"+this.lang+"/"+this.word).get();
 		Elements translate = doc.select("div#translations-content");  
 		Elements nativeSentence = doc.select("div.src.ltr");
 		Elements translatedSentence = doc.select("div.trg.ltr");

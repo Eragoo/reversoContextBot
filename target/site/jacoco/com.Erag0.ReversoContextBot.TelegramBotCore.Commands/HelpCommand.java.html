@@ -3,28 +3,30 @@
 import com.Erag0.ReversoContextBot.Util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 
 public class HelpCommand implements Command {
     private static TelegramBot bot;
     private static Update update;
     private Storage storage;
-<span class="nc" id="L12">    public final String NAME = &quot;/help&quot;;</span>
+<span class="nc" id="L13">    public final String NAME = &quot;/help&quot;;</span>
 
-<span class="nc" id="L14">    public HelpCommand(TelegramBot bot, Update update) {</span>
-<span class="nc" id="L15">       this.bot = bot;</span>
-<span class="nc" id="L16">       this.update = update;</span>
-<span class="nc" id="L17">       storage = new Storage(update);</span>
-<span class="nc" id="L18">    }</span>
+<span class="nc" id="L15">    public HelpCommand(TelegramBot bot, Update update) {</span>
+<span class="nc" id="L16">       this.bot = bot;</span>
+<span class="nc" id="L17">       this.update = update;</span>
+<span class="nc" id="L18">       storage = new Storage(update);</span>
+<span class="nc" id="L19">    }</span>
 
     public void execute() {
-<span class="nc" id="L21">        String command = storage.RestoreCommand();</span>
-<span class="nc" id="L22">        bot.execute(new SendMessage(update.message().chat().id(), &quot;Restored command : &quot; + command + &quot;. Command &quot; + NAME + &quot; stored!&quot;));</span>
-<span class="nc" id="L23">        storage.StoreCommand(NAME);</span>
-<span class="nc" id="L24">    }</span>
+<span class="nc" id="L22">        bot.execute(new SendMessage(update.message().chat().id(), &quot;*Введите /start чтобы начать!*&quot;)</span>
+<span class="nc" id="L23">        .parseMode(ParseMode.Markdown)</span>
+                );
+<span class="nc" id="L25">        storage.StoreCommand(NAME);</span>
+<span class="nc" id="L26">    }</span>
 
     public String toString() {
-<span class="nc" id="L27">        return NAME;</span>
+<span class="nc" id="L29">        return NAME;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

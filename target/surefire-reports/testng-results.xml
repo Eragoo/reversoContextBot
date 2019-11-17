@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-11-16T19:21:36Z" name="AllTests" finished-at="2019-11-16T19:21:36Z" duration-ms="160">
+  <suite started-at="2019-11-17T19:59:32Z" name="AllTests" finished-at="2019-11-17T19:59:32Z" duration-ms="30">
     <groups>
     </groups>
-    <test started-at="2019-11-16T19:21:36Z" name="All" finished-at="2019-11-16T19:21:36Z" duration-ms="160">
-      <class name="com.Erag0.ReversoContextBot.testing.AppTest">
-        <test-method signature="test()[pri:0, instance:com.Erag0.ReversoContextBot.testing.AppTest@1e8ab90f]" started-at="2019-11-16T19:21:36Z" name="test" finished-at="2019-11-16T19:21:36Z" duration-ms="34" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-      </class> <!-- com.Erag0.ReversoContextBot.testing.AppTest -->
+    <test started-at="2019-11-17T19:59:32Z" name="All" finished-at="2019-11-17T19:59:32Z" duration-ms="30">
     </test> <!-- All -->
   </suite> <!-- AllTests -->
 </testng-results>

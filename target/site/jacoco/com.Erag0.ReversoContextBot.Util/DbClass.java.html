@@ -22,73 +22,85 @@ public class DbClass {
 <span class="nc" id="L22">        user.setChatId(chat_id);</span>
 <span class="nc" id="L23">        user.setCommand(command);</span>
 <span class="nc" id="L24">        user.setLanguage(language);</span>
-<span class="nc" id="L25">        user.setUsername(username);</span>
-
-<span class="nc" id="L27">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L28">        Transaction transaction = null;</span>
-<span class="nc" id="L29">        transaction = session.beginTransaction();</span>
-<span class="nc" id="L30">        session.save(user);</span>
-<span class="nc" id="L31">        transaction.commit();</span>
-<span class="nc" id="L32">        session.close();</span>
-<span class="nc" id="L33">    }</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (username != null) {</span>
+<span class="nc" id="L26">            user.setUsername(username);</span>
+        }else {
+<span class="nc" id="L28">            user.setUsername(Long.toString(chat_id));</span>
+        }
+<span class="nc" id="L30">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L31">        Transaction transaction = null;</span>
+<span class="nc" id="L32">        transaction = session.beginTransaction();</span>
+<span class="nc" id="L33">        session.save(user);</span>
+<span class="nc" id="L34">        transaction.commit();</span>
+<span class="nc" id="L35">        session.close();</span>
+<span class="nc" id="L36">    }</span>
 
     public void UpdateLang(long chat_id, String username, String language) {
-<span class="nc" id="L36">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L37">        Transaction transaction = null;</span>
-<span class="nc" id="L38">        transaction = session.beginTransaction();</span>
+<span class="nc" id="L39">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L40">        Transaction transaction = null;</span>
+<span class="nc" id="L41">        transaction = session.beginTransaction();</span>
 
-<span class="nc" id="L40">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
-<span class="nc" id="L41">        user.setLanguage(language);</span>
-<span class="nc" id="L42">        user.setUsername(username);</span>
-<span class="nc" id="L43">        session.update(user);</span>
-<span class="nc" id="L44">        transaction.commit();</span>
-<span class="nc" id="L45">        session.close();</span>
-<span class="nc" id="L46">    }</span>
+<span class="nc" id="L43">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L44">        user.setLanguage(language);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">        if (username != null) {</span>
+<span class="nc" id="L46">            user.setUsername(username);</span>
+        }else {
+<span class="nc" id="L48">            user.setUsername(Long.toString(chat_id));</span>
+        }
+<span class="nc" id="L50">        session.update(user);</span>
+<span class="nc" id="L51">        transaction.commit();</span>
+<span class="nc" id="L52">        session.close();</span>
+<span class="nc" id="L53">    }</span>
     public void UpdateCommand(long chat_id, String username, String command, String language) {
-<span class="nc" id="L48">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L49">        Transaction transaction = null;</span>
-<span class="nc" id="L50">        transaction = session.beginTransaction();</span>
+<span class="nc" id="L55">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L56">        Transaction transaction = null;</span>
+<span class="nc" id="L57">        transaction = session.beginTransaction();</span>
 
-<span class="nc" id="L52">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
-<span class="nc" id="L53">        user.setCommand(command);</span>
-<span class="nc" id="L54">        user.setUsername(username);</span>
-<span class="nc" id="L55">        session.update(user);</span>
-<span class="nc" id="L56">        transaction.commit();</span>
-<span class="nc" id="L57">        session.close();</span>
-<span class="nc" id="L58">    }</span>
-
-    public String RestoreLang(long chat_id) {
-<span class="nc" id="L61">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L62">        Transaction transaction = null;</span>
-<span class="nc" id="L63">        transaction = session.beginTransaction();</span>
-//добавить проверку на случай если язык не задан
-<span class="nc" id="L65">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L59">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L60">        user.setCommand(command);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (username != null) {</span>
+<span class="nc" id="L62">            user.setUsername(username);</span>
+        }else {
+<span class="nc" id="L64">            user.setUsername(Long.toString(chat_id));</span>
+        }
 <span class="nc" id="L66">        session.update(user);</span>
 <span class="nc" id="L67">        transaction.commit();</span>
 <span class="nc" id="L68">        session.close();</span>
-<span class="nc" id="L69">        return user.getLanguage();</span>
+<span class="nc" id="L69">    }</span>
+
+    public String RestoreLang(long chat_id) {
+<span class="nc" id="L72">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L73">        Transaction transaction = null;</span>
+<span class="nc" id="L74">        transaction = session.beginTransaction();</span>
+//добавить проверку на случай если язык не задан
+<span class="nc" id="L76">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L77">        session.update(user);</span>
+
+<span class="nc" id="L79">        transaction.commit();</span>
+<span class="nc" id="L80">        session.close();</span>
+<span class="nc" id="L81">        return user.getLanguage();</span>
     }
 
     public String RestoreCommand(long chat_id) {
-<span class="nc" id="L73">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L74">        Transaction transaction = null;</span>
-<span class="nc" id="L75">        transaction = session.beginTransaction();</span>
+<span class="nc" id="L85">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L86">        Transaction transaction = null;</span>
+<span class="nc" id="L87">        transaction = session.beginTransaction();</span>
 //добавить проверку на случай если такого юзера в базе нет
-<span class="nc" id="L77">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
-<span class="nc" id="L78">        session.update(user);</span>
-<span class="nc" id="L79">        transaction.commit();</span>
-<span class="nc" id="L80">        session.close();</span>
+<span class="nc" id="L89">        UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);</span>
+<span class="nc" id="L90">        session.update(user);</span>
+<span class="nc" id="L91">        transaction.commit();</span>
+<span class="nc" id="L92">        session.close();</span>
 
-<span class="nc" id="L82">        return user.getCommand();</span>
+<span class="nc" id="L94">        return user.getCommand();</span>
     }
 
     public long Count(long chat_id) {
-<span class="nc" id="L86">        Session session = sessionFactory.openSession();</span>
-<span class="nc" id="L87">        Query query =  session.createQuery(&quot;select count(*) from UsersEntity Users where Users.chatId=:chat_id&quot;);</span>
-<span class="nc" id="L88">        query.setParameter(&quot;chat_id&quot;, chat_id);</span>
-<span class="nc" id="L89">        Long count = (Long)query.uniqueResult();</span>
-<span class="nc" id="L90">        session.close();</span>
-<span class="nc" id="L91">        return count;</span>
+<span class="nc" id="L98">        Session session = sessionFactory.openSession();</span>
+<span class="nc" id="L99">        Query query =  session.createQuery(&quot;select count(*) from UsersEntity Users where Users.chatId=:chat_id&quot;);</span>
+<span class="nc" id="L100">        query.setParameter(&quot;chat_id&quot;, chat_id);</span>
+<span class="nc" id="L101">        Long count = (Long)query.uniqueResult();</span>
+<span class="nc" id="L102">        session.close();</span>
+<span class="nc" id="L103">        return count;</span>
     }
 
 

@@ -1,6 +1,9 @@
+/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.java
+/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/Handler.java
+/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/Command.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Factories/HibernateSessionFactory.java
-/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/EmptyCommand.java
+/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Util/SQLiteDialect.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Parser/Text.java
@@ -10,5 +13,6 @@
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Entity/UsersEntity.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Factories/CommandFactoryBehavior.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CommandController.java
+/Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/App.java
 /Users/macbook/Documents/programming/java_project/ReversoContextBot/ReversoContextBot/src/main/java/com/Erag0/ReversoContextBot/Util/Storage.java

@@ -2,28 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d9fd27c-c4e8-47ee-91e9-d48363adfcb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/Handler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/EmptyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/DbClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/DbClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util/Storage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/reversoContextBot/Factories/CommandFactoryBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/reversoContextBot/Factories/CommandFactoryBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/EmptyCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/Erag0/ReversoContextBot/testing/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Parser/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/HelpCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/Commands/StartCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/DbClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/DbClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/GetCommandFromMessage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/Storage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/Util/Storage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/reversoContextBot/Factories/CommandFactoryBehavior.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/reversoContextBot/Factories/CommandFactoryBehavior.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/reversoContextBot-1.0-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/reversoContextBot-1.0-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/reversoContextBot-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/reversoContextBot-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/Parser.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/Parser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/Parser.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/Parser.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Parser/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/LangCallbackHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/LangCallbackHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/LangCallbackHandler.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/LangCallbackHandler.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/GetContextCommand.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/GetContextCommand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/GetContextCommand.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/GetContextCommand.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/HelpCommand.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/HelpCommand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/HelpCommand.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/HelpCommand.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/StartCommand.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/StartCommand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/StartCommand.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/StartCommand.java.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/ReversoContextBot.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/ReversoContextBot.html" afterDir="false" />
@@ -32,16 +49,10 @@
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/index.source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/DbClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/DbClass.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/DbClass.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/DbClass.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/GetCommandFromMessage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/GetCommandFromMessage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/GetCommandFromMessage.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/GetCommandFromMessage.java.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/Storage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/Storage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/Storage.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/Storage.java.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.Util/index.source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/CommandFactoryBehavior.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/CommandFactoryBehavior.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/CommandFactoryBehavior.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/CommandFactoryBehavior.java.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.reversoContextBot.Factories/index.source.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
@@ -53,9 +64,14 @@
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-com.Erag0.ReversoContextBot.testing.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-com.Erag0.ReversoContextBot.testing.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/classes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/methods-alphabetical.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/methods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/testng.xml.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/testng.xml.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/AllTests/toc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/Erag0/ReversoContextBot/testing/AppTest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +126,7 @@
         <option value="hibernate-main-5.2" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
@@ -130,28 +147,29 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="d0fd3ccd-779b-410a-9d93-3ad536008c1e" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Factories" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Loger/Behavior" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Factories" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Parser" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.Erag0.ReversoContextBot.Entity" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Loger/Behavior" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Loger" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Factories" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/Util" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/Commands" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn install" />
       <command value="java -jar target/ReversoContextBot-1.0-shaded.jar " />
+      <command value="mvn install" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -178,7 +196,8 @@
       <updated>1573573280741</updated>
       <workItem from="1573573282579" duration="8180000" />
       <workItem from="1573663899717" duration="5012000" />
-      <workItem from="1573912941911" duration="12333000" />
+      <workItem from="1573912941911" duration="12552000" />
+      <workItem from="1574004966163" duration="14051000" />
     </task>
     <servers />
   </component>

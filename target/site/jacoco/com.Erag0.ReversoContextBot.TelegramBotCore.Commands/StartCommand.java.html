@@ -5,6 +5,7 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.*;
 import com.pengrad.telegrambot.request.SendMessage;
+import com.Erag0.ReversoContextBot.Logger.Logger;
 
 public class StartCommand implements Command{
     private static TelegramBot bot;
@@ -12,42 +13,37 @@ public class StartCommand implements Command{
     private Storage storage;
     public static final String NAME = &quot;/start&quot;;
 
-<span class="nc" id="L15">    public StartCommand(TelegramBot bot, Update update) {</span>
-<span class="nc" id="L16">        this.bot = bot;</span>
-<span class="nc" id="L17">        this.update = update;</span>
-<span class="nc" id="L18">        this.storage = new Storage(update);</span>
-<span class="nc" id="L19">    }</span>
+<span class="nc" id="L16">    public StartCommand(TelegramBot bot, Update update) {</span>
+<span class="nc" id="L17">        this.bot = bot;</span>
+<span class="nc" id="L18">        this.update = update;</span>
+<span class="nc" id="L19">        this.storage = new Storage(update);</span>
+<span class="nc" id="L20">    }</span>
 
     public void execute() {
-<span class="nc" id="L22">        String command = storage.RestoreCommand();</span>
-
+<span class="nc" id="L23">        long chat_id = update.message().chat().id();</span>
 <span class="nc" id="L24">        StringBuilder messageText = new StringBuilder();</span>
-<span class="nc" id="L25">        messageText.append(&quot;*Привет!*&quot; + &quot;\n&quot;);</span>
-<span class="nc" id="L26">        messageText.append(&quot;*Моя основная функция - помогать тебе в изучении иностранного языка*&quot; + &quot;\n&quot;);</span>
-<span class="nc" id="L27">        messageText.append(&quot;*Я умею подставлять введенное слово в контекст выбраного тобой языка*&quot; + &quot;\n&quot;);</span>
-<span class="nc" id="L28">        messageText.append(&quot;_Какая в этом польза?_ - *можно узнать с помощью /about*&quot; + &quot;\n&quot;);</span>
-<span class="nc" id="L29">        messageText.append(&quot;*Для работы тебе нужно только выбрать язык и ввести желаемое слово/фразу*&quot;);</span>
-<span class="nc" id="L30">        messageText.append(&quot;*и в ответ ты получишь примеры употребления этого слова/фразы в живом контексте!*&quot;);</span>
+<span class="nc" id="L25">        messageText.append(&quot;*Привет👻*&quot; + &quot;\n&quot;);</span>
+<span class="nc" id="L26">        messageText.append(&quot;*Я умею подставлять введенное слово в контекст выбраного тобой языка*✏️&quot; + &quot;\n&quot;);</span>
+<span class="nc" id="L27">        messageText.append(&quot;*Выбери язык и введи желаемое слово/фразу*📝&quot;);</span>
 
-<span class="nc" id="L32">        System.out.println(&quot;Restored command : &quot; + command + &quot;. Command &quot; + NAME + &quot; stored!&quot;);</span>
-
-
-<span class="nc" id="L35">        InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(</span>
-                new InlineKeyboardButton[]{
-<span class="nc" id="L37">                        new InlineKeyboardButton(&quot;Английский - Русский&quot;).callbackData(&quot;english-russian&quot;),</span>
-<span class="nc" id="L38">                        new InlineKeyboardButton(&quot;Русский - Английский&quot;).callbackData(&quot;russian-english&quot;),</span>
-<span class="nc" id="L39">                        new InlineKeyboardButton(&quot;Английский - Русский&quot;).callbackData(&quot;english-russian&quot;),</span>
-<span class="nc" id="L40">                        new InlineKeyboardButton(&quot;Русский - Английский&quot;).callbackData(&quot;russian-english&quot;),</span>
+<span class="nc" id="L29">        InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(</span>
+                new InlineKeyboardButton[][]{{
+<span class="nc" id="L31">                        new InlineKeyboardButton(&quot;🇬🇧En - Ru🇷🇺&quot;).callbackData(&quot;english-russian&quot;),</span>
+<span class="nc" id="L32">                        new InlineKeyboardButton(&quot;🇷🇺Ru - En🇬🇧&quot;).callbackData(&quot;russian-english&quot;)},{</span>
+<span class="nc" id="L33">                        new InlineKeyboardButton(&quot;🇩🇪Ge - Ru🇷🇺&quot;).callbackData(&quot;german-russian&quot;),</span>
+<span class="nc" id="L34">                        new InlineKeyboardButton(&quot;🇷🇺Ru - Ge🇩🇪&quot;).callbackData(&quot;russian-german&quot;)},{</span>
+<span class="nc" id="L35">                        new InlineKeyboardButton(&quot;🇯🇵Jp - Ru🇷🇺&quot;).callbackData(&quot;japanese-russian&quot;),</span>
+<span class="nc" id="L36">                        new InlineKeyboardButton(&quot;🇷🇺Ru - Jp🇯🇵&quot;).callbackData(&quot;russian-japanese&quot;)}</span>
                 });
-<span class="nc" id="L42">        bot.execute(new SendMessage(update.message().chat().id(), messageText.toString())</span>
-<span class="nc" id="L43">                .parseMode(ParseMode.Markdown)</span>
-<span class="nc" id="L44">                .replyMarkup(inlineKeyboard)</span>
+<span class="nc" id="L38">        bot.execute(new SendMessage(chat_id, messageText.toString())</span>
+<span class="nc" id="L39">                .parseMode(ParseMode.Markdown)</span>
+<span class="nc" id="L40">                .replyMarkup(inlineKeyboard)</span>
         );
 
-<span class="nc" id="L47">        storage.StoreCommand(NAME);</span>
-<span class="nc" id="L48">    }</span>
+<span class="nc" id="L43">        storage.StoreCommand(NAME);</span>
+<span class="nc" id="L44">    }</span>
     public String toString() {
-<span class="nc" id="L50">        return NAME;</span>
+<span class="nc" id="L46">        return NAME;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

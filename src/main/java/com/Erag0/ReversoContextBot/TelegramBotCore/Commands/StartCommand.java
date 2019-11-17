@@ -5,6 +5,7 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.*;
 import com.pengrad.telegrambot.request.SendMessage;
+import com.Erag0.ReversoContextBot.Logger.Logger;
 
 public class StartCommand implements Command{
     private static TelegramBot bot;
@@ -19,27 +20,22 @@ public class StartCommand implements Command{
     }
 
     public void execute() {
-        String command = storage.RestoreCommand();
-
+        long chat_id = update.message().chat().id();
         StringBuilder messageText = new StringBuilder();
-        messageText.append("*Привет!*" + "\n");
-        messageText.append("*Моя основная функция - помогать тебе в изучении иностранного языка*" + "\n");
-        messageText.append("*Я умею подставлять введенное слово в контекст выбраного тобой языка*" + "\n");
-        messageText.append("_Какая в этом польза?_ - *можно узнать с помощью /about*" + "\n");
-        messageText.append("*Для работы тебе нужно только выбрать язык и ввести желаемое слово/фразу*");
-        messageText.append("*и в ответ ты получишь примеры употребления этого слова/фразы в живом контексте!*");
-
-        System.out.println("Restored command : " + command + ". Command " + NAME + " stored!");
-
+        messageText.append("*Привет👻*" + "\n");
+        messageText.append("*Я умею подставлять введенное слово в контекст выбраного тобой языка*✏️" + "\n");
+        messageText.append("*Выбери язык и введи желаемое слово/фразу*📝");
 
         InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(
-                new InlineKeyboardButton[]{
-                        new InlineKeyboardButton("Английский - Русский").callbackData("english-russian"),
-                        new InlineKeyboardButton("Русский - Английский").callbackData("russian-english"),
-                        new InlineKeyboardButton("Английский - Русский").callbackData("english-russian"),
-                        new InlineKeyboardButton("Русский - Английский").callbackData("russian-english"),
+                new InlineKeyboardButton[][]{{
+                        new InlineKeyboardButton("🇬🇧En - Ru🇷🇺").callbackData("english-russian"),
+                        new InlineKeyboardButton("🇷🇺Ru - En🇬🇧").callbackData("russian-english")},{
+                        new InlineKeyboardButton("🇩🇪Ge - Ru🇷🇺").callbackData("german-russian"),
+                        new InlineKeyboardButton("🇷🇺Ru - Ge🇩🇪").callbackData("russian-german")},{
+                        new InlineKeyboardButton("🇯🇵Jp - Ru🇷🇺").callbackData("japanese-russian"),
+                        new InlineKeyboardButton("🇷🇺Ru - Jp🇯🇵").callbackData("russian-japanese")}
                 });
-        bot.execute(new SendMessage(update.message().chat().id(), messageText.toString())
+        bot.execute(new SendMessage(chat_id, messageText.toString())
                 .parseMode(ParseMode.Markdown)
                 .replyMarkup(inlineKeyboard)
         );

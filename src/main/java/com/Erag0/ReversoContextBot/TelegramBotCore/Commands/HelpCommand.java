@@ -3,6 +3,7 @@ package com.Erag0.ReversoContextBot.TelegramBotCore.Commands;
 import com.Erag0.ReversoContextBot.Util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 
 public class HelpCommand implements Command {
@@ -18,8 +19,9 @@ public class HelpCommand implements Command {
     }
 
     public void execute() {
-        String command = storage.RestoreCommand();
-        bot.execute(new SendMessage(update.message().chat().id(), "Restored command : " + command + ". Command " + NAME + " stored!"));
+        bot.execute(new SendMessage(update.message().chat().id(), "*Введите /start чтобы начать!*\n*_По всем вопросам обращайтесь к @Erag0Contactbot_")
+        .parseMode(ParseMode.Markdown)
+                );
         storage.StoreCommand(NAME);
     }
 

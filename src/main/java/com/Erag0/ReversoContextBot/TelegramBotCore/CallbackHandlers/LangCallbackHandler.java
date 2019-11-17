@@ -1,5 +1,6 @@
 package com.Erag0.ReversoContextBot.TelegramBotCore.CallbackHandlers;
 
+import com.Erag0.ReversoContextBot.Logger.Logger;
 import com.Erag0.ReversoContextBot.Util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
@@ -18,13 +19,13 @@ public class LangCallbackHandler implements Handler{
     }
 
     public void execute(String query) {
-        System.out.println("Trying to store lang");
+        Logger.Log("info","Logs.txt","Trying to store lang!");
         storage.StoreLang(query);
-        System.out.println("Lang stored!");
+        Logger.Log("info","Logs.txt","Lang stored!");
         SendSuccessMessage();
     }
     private void SendSuccessMessage() {
-        String messageText = "*Язык перевода задан*\n";
+        String messageText = "*Язык перевода задан*✨\n";
         bot.execute(new SendMessage(update.callbackQuery().from().id(), messageText)
                 .parseMode(ParseMode.Markdown)
         );

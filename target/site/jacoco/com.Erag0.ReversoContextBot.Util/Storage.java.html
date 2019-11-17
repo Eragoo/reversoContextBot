@@ -13,57 +13,42 @@ public class Storage {
 
     public String RestoreLang() {
 <span class="nc" id="L15">        long chat_id = update.message().chat().id();</span>
-<span class="nc" id="L16">        String lang = dbClass.RestoreLang(chat_id);</span>
-<span class="nc" id="L17">        return lang;</span>
+<span class="nc" id="L16">        return dbClass.RestoreLang(chat_id);</span>
     }
 
     public void StoreLang(String lang) {
-<span class="nc" id="L21">        long chat_id = update.callbackQuery().from().id();</span>
-<span class="nc" id="L22">        String username = update.callbackQuery().from().username();</span>
-
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
-<span class="nc" id="L25">            System.out.println(&quot;Trying update user!&quot;);</span>
-<span class="nc" id="L26">            dbClass.UpdateLang(chat_id, username, lang);</span>
-<span class="nc" id="L27">            System.out.println(&quot;User updated!&quot;);</span>
-
+<span class="nc" id="L20">        long chat_id = update.callbackQuery().from().id();</span>
+<span class="nc" id="L21">        String username = update.callbackQuery().from().username();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
+<span class="nc" id="L23">            dbClass.UpdateLang(chat_id, username, lang);</span>
         } else {
-<span class="nc" id="L30">            String command = &quot;Undefined&quot;;</span>
-<span class="nc" id="L31">            System.out.println(&quot;Trying add user!&quot;);</span>
-<span class="nc" id="L32">            dbClass.AddUser(chat_id, username, command, lang);</span>
-<span class="nc" id="L33">            System.out.println(&quot;User added!&quot;);</span>
+<span class="nc" id="L25">            String command = &quot;Undefined&quot;;</span>
+<span class="nc" id="L26">            dbClass.AddUser(chat_id, username, command, lang);</span>
         }
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L28">    }</span>
 
     public void StoreCommand(String command){
-<span class="nc" id="L38">        long chat_id = update.message().chat().id();</span>
-<span class="nc" id="L39">        String username = update.message().chat().username();</span>
-<span class="nc" id="L40">        String lang = &quot;Undefined&quot;;</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
-<span class="nc" id="L42">            System.out.println(&quot;Trying update user!&quot;);</span>
-<span class="nc" id="L43">            dbClass.UpdateCommand(chat_id, username, command, lang);</span>
-<span class="nc" id="L44">            System.out.println(&quot;User updated!&quot;);</span>
-
+<span class="nc" id="L31">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L32">        String username = update.message().chat().username();</span>
+<span class="nc" id="L33">        String lang = &quot;Undefined&quot;;</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
+<span class="nc" id="L35">            dbClass.UpdateCommand(chat_id, username, command, lang);</span>
         } else {
-<span class="nc" id="L47">            System.out.println(&quot;Trying add user!&quot;);</span>
-<span class="nc" id="L48">            dbClass.AddUser(chat_id, username, command, lang);</span>
-<span class="nc" id="L49">            System.out.println(&quot;User added!&quot;);</span>
+<span class="nc" id="L37">            dbClass.AddUser(chat_id, username, command, lang);</span>
         }
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L39">    }</span>
 
     public String RestoreCommand() {
-<span class="nc" id="L54">        long chat_id = update.message().chat().id();</span>
-<span class="nc" id="L55">        String command = dbClass.RestoreCommand(chat_id);</span>
-<span class="nc" id="L56">        return command;</span>
+<span class="nc" id="L42">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L43">        return dbClass.RestoreCommand(chat_id);</span>
     }
 
     public boolean isSet(long chat_id){
-<span class="nc" id="L60">        System.out.println(&quot;Trying to calcualte count of users with this chat_id!&quot;);</span>
-<span class="nc" id="L61">        long i = dbClass.Count(chat_id);</span>
-<span class="nc" id="L62">        System.out.println(&quot;Count of records with that chat_id = &quot; + i);</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (i != 0) {</span>
-<span class="nc" id="L64">            return true;</span>
+<span class="nc" id="L47">        long i = dbClass.Count(chat_id);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (i != 0) {</span>
+<span class="nc" id="L49">            return true;</span>
         }
-<span class="nc" id="L66">        return false;</span>
+<span class="nc" id="L51">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -22,8 +22,11 @@ public class DbClass {
         user.setChatId(chat_id);
         user.setCommand(command);
         user.setLanguage(language);
-        user.setUsername(username);
-
+        if (username != null) {
+            user.setUsername(username);
+        }else {
+            user.setUsername(Long.toString(chat_id));
+        }
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         transaction = session.beginTransaction();
@@ -39,7 +42,11 @@ public class DbClass {
 
         UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);
         user.setLanguage(language);
-        user.setUsername(username);
+        if (username != null) {
+            user.setUsername(username);
+        }else {
+            user.setUsername(Long.toString(chat_id));
+        }
         session.update(user);
         transaction.commit();
         session.close();
@@ -51,7 +58,11 @@ public class DbClass {
 
         UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);
         user.setCommand(command);
-        user.setUsername(username);
+        if (username != null) {
+            user.setUsername(username);
+        }else {
+            user.setUsername(Long.toString(chat_id));
+        }
         session.update(user);
         transaction.commit();
         session.close();
@@ -64,6 +75,7 @@ public class DbClass {
 //добавить проверку на случай если язык не задан
         UsersEntity user = (UsersEntity) session.get(UsersEntity.class, chat_id);
         session.update(user);
+
         transaction.commit();
         session.close();
         return user.getLanguage();
