@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetContextCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ReversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.Erag0.ReversoContextBot.TelegramBotCore.Commands</a> &gt; <span class="el_source">GetContextCommand.java</span></div><h1>GetContextCommand.java</h1><pre class="source lang-java linenums">package com.Erag0.ReversoContextBot.TelegramBotCore.Commands;
+
+import com.Erag0.ReversoContextBot.Logger.Logger;
+import com.Erag0.ReversoContextBot.Parser.Parser;
+import com.Erag0.ReversoContextBot.Util.Storage;
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.model.request.ParseMode;
+import com.pengrad.telegrambot.request.SendMessage;
+
+import java.io.IOException;
+
+public class GetContextCommand implements Command{
+    private TelegramBot bot;
+    private Update update;
+    private Storage storage;
+    private Parser parser;
+    public static final String NAME = &quot;/get&quot;;
+
+<span class="nc" id="L20">    public GetContextCommand(TelegramBot bot, Update update) {</span>
+<span class="nc" id="L21">        this.bot = bot;</span>
+<span class="nc" id="L22">        this.update = update;</span>
+<span class="nc" id="L23">        storage = new Storage(update);</span>
+<span class="nc" id="L24">    }</span>
+    public void execute() {
+<span class="nc" id="L26">        String lang = storage.RestoreLang();</span>
+<span class="nc" id="L27">        String phrase = update.message().text();</span>
+<span class="nc" id="L28">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L29">        String message = &quot;&quot;;</span>
+<span class="nc" id="L30">        Parser parser = new Parser(lang, phrase);</span>
+        try{
+<span class="nc" id="L32">            message = parser.getText();</span>
+<span class="nc" id="L33">        } catch (IOException ex) {</span>
+<span class="nc" id="L34">            Logger.Log(&quot;error&quot;,&quot;Logs.txt&quot;,ex.getMessage());</span>
+<span class="nc" id="L35">            message = &quot;*Такой фразы нет в нашей базе*😢\n*Пожалуйста, попробуй другую формулировку*&quot;;</span>
+        } finally {
+<span class="nc" id="L37">            bot.execute(new SendMessage(chat_id, message)</span>
+<span class="nc" id="L38">                 .parseMode(ParseMode.Markdown)</span>
+            );
+        }
+<span class="nc" id="L41">        storage.StoreCommand(NAME);</span>
+<span class="nc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

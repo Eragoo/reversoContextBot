@@ -1,8 +1,9 @@
-package com.Erag0.reversoContextBot.Factories;
+package com.Erag0.ReversoContextBot.Factories;
 
-import com.Erag0.reversoContextBot.telegram.Commands.Command;
-import com.Erag0.reversoContextBot.telegram.Commands.EmptyCommand;
-import com.Erag0.reversoContextBot.telegram.Commands.HelpCommand;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.Command;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.GetContextCommand;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.HelpCommand;
+import com.Erag0.ReversoContextBot.TelegramBotCore.Commands.StartCommand;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
 
@@ -18,7 +19,9 @@ public class CommandFactoryBehavior {
     public Command getCommand(String command) {
         if ("/help".equals(command)) {
             return new HelpCommand(bot, update);
+        } else if ("/start".equals(command)) {
+            return new StartCommand(bot, update);
         }
-        return new EmptyCommand(bot, update);
+        return new GetContextCommand(bot, update);
     }
 }

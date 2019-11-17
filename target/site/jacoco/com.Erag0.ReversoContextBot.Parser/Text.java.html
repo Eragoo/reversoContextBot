@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Text.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ReversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.Erag0.ReversoContextBot.Parser</a> &gt; <span class="el_source">Text.java</span></div><h1>Text.java</h1><pre class="source lang-java linenums">package com.Erag0.ReversoContextBot.Parser;
+
+public class Text {
+	private String translate;
+	private String examples;
+	private String finalText;
+
+<span class="nc" id="L8">	public Text(String translate, String examples){</span>
+<span class="nc" id="L9">		this.translate = translate;</span>
+<span class="nc" id="L10">		this.examples = examples;</span>
+<span class="nc" id="L11">	}</span>
+
+	public void setTranslate(String trans){
+<span class="nc" id="L14">		this.translate = translate;</span>
+<span class="nc" id="L15">	}</span>
+
+	public void setExamples(String exampls){
+<span class="nc" id="L18">		this.examples = examples;</span>
+<span class="nc" id="L19">	}</span>
+
+	public String getFinalText() {
+<span class="nc" id="L22">		generateFinalText();</span>
+<span class="nc" id="L23">		return finalText;</span>
+	}
+
+	public void print() {
+<span class="nc" id="L27">		System.out.println(translate);</span>
+<span class="nc" id="L28">		System.out.println(examples);</span>
+<span class="nc" id="L29">	}</span>
+
+	private void generateFinalText() {
+<span class="nc" id="L32">		finalText = examples;</span>
+<span class="nc" id="L33">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

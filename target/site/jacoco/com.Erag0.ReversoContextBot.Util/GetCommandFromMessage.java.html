@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GetCommandFromMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ReversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.Erag0.ReversoContextBot.Util</a> &gt; <span class="el_source">GetCommandFromMessage.java</span></div><h1>GetCommandFromMessage.java</h1><pre class="source lang-java linenums">package com.Erag0.ReversoContextBot.Util;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+<span class="nc" id="L6">public class GetCommandFromMessage {</span>
+
+    public static boolean isCommand(String str) {
+<span class="nc bnc" id="L9" title="All 2 branches missed.">        if (str != null){</span>
+<span class="nc" id="L10">            String trimmed = str.trim().toLowerCase();</span>
+<span class="nc" id="L11">            Pattern p = Pattern.compile(&quot;(/\\S+)&quot;);</span>
+<span class="nc" id="L12">            Matcher matcher = p.matcher(str);</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">            if (matcher.find()) {</span>
+<span class="nc" id="L14">                return true;</span>
+            }
+        }
+<span class="nc" id="L17">        return false;</span>
+    }
+
+    public static String getCommand(String str) {
+<span class="nc" id="L21">        String command = &quot;&quot;;</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (str != null){</span>
+<span class="nc" id="L23">            String trimmed = str.trim().toLowerCase();</span>
+<span class="nc" id="L24">            Pattern p = Pattern.compile(&quot;(/\\S+)&quot;);</span>
+<span class="nc" id="L25">            Matcher matcher = p.matcher(str);</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (matcher.find()) {</span>
+<span class="nc" id="L27">                command = matcher.group(1);</span>
+            }
+        }
+<span class="nc" id="L30">        return command;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

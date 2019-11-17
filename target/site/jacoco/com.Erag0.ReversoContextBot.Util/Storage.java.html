@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Storage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ReversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.Erag0.ReversoContextBot.Util</a> &gt; <span class="el_source">Storage.java</span></div><h1>Storage.java</h1><pre class="source lang-java linenums">package com.Erag0.ReversoContextBot.Util;
+
+import com.pengrad.telegrambot.model.Update;
+
+public class Storage {
+    private Update update;
+    private DbClass dbClass;
+
+<span class="nc" id="L9">    public Storage(Update update) {</span>
+<span class="nc" id="L10">        dbClass = DbClass.getInstance();</span>
+<span class="nc" id="L11">        this.update = update;</span>
+<span class="nc" id="L12">    }</span>
+
+    public String RestoreLang() {
+<span class="nc" id="L15">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L16">        return dbClass.RestoreLang(chat_id);</span>
+    }
+
+    public void StoreLang(String lang) {
+<span class="nc" id="L20">        long chat_id = update.callbackQuery().from().id();</span>
+<span class="nc" id="L21">        String username = update.callbackQuery().from().username();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
+<span class="nc" id="L23">            dbClass.UpdateLang(chat_id, username, lang);</span>
+        } else {
+<span class="nc" id="L25">            String command = &quot;Undefined&quot;;</span>
+<span class="nc" id="L26">            dbClass.AddUser(chat_id, username, command, lang);</span>
+        }
+<span class="nc" id="L28">    }</span>
+
+    public void StoreCommand(String command){
+<span class="nc" id="L31">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L32">        String username = update.message().chat().username();</span>
+<span class="nc" id="L33">        String lang = &quot;Undefined&quot;;</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (isSet(chat_id)) {</span>
+<span class="nc" id="L35">            dbClass.UpdateCommand(chat_id, username, command, lang);</span>
+        } else {
+<span class="nc" id="L37">            dbClass.AddUser(chat_id, username, command, lang);</span>
+        }
+<span class="nc" id="L39">    }</span>
+
+    public String RestoreCommand() {
+<span class="nc" id="L42">        long chat_id = update.message().chat().id();</span>
+<span class="nc" id="L43">        return dbClass.RestoreCommand(chat_id);</span>
+    }
+
+    public boolean isSet(long chat_id){
+<span class="nc" id="L47">        long i = dbClass.Count(chat_id);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (i != 0) {</span>
+<span class="nc" id="L49">            return true;</span>
+        }
+<span class="nc" id="L51">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

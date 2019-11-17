@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmptyCommand.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ReversoContextBot</a> &gt; <a href="index.source.html" class="el_package">com.Erag0.ReversoContextBot.TelegramBotCore.Commands</a> &gt; <span class="el_source">EmptyCommand.java</span></div><h1>EmptyCommand.java</h1><pre class="source lang-java linenums">package com.Erag0.ReversoContextBot.TelegramBotCore.Commands;
+
+import com.pengrad.telegrambot.TelegramBot;
+import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.SendMessage;
+
+public class EmptyCommand implements Command{
+    private TelegramBot bot;
+    private Update update;
+    public static final String NAME = &quot;/empty&quot;;
+<span class="nc" id="L11">    public EmptyCommand(TelegramBot bot, Update update) {</span>
+<span class="nc" id="L12">        this.bot = bot;</span>
+<span class="nc" id="L13">        this.update = update;</span>
+<span class="nc" id="L14">    }</span>
+    public void execute() {
+<span class="nc" id="L16">        bot.execute(new SendMessage(update.message().chat().id(), &quot;default command&quot;));</span>
+<span class="nc" id="L17">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
