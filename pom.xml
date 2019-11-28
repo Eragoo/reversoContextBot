@@ -9,7 +9,6 @@
 
 	<name>ReversoContextBot</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -51,18 +50,24 @@
 			<artifactId>java-telegram-bot-api</artifactId>
 			<version>4.4.0</version>
 		</dependency>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refactoring
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>com.tvd12</groupId>
 			<artifactId>test-util</artifactId>
 			<version>${test.util.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 	
 	<build>
