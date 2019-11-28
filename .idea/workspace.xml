@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d9fd27c-c4e8-47ee-91e9-d48363adfcb4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/d0fd3ccd-779b-410a-9d93-3ad536008c1e.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reversoContextBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/reversoContextBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/.DS_Store~HEAD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/.DS_Store~refactoring" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,6 +131,7 @@
       <workItem from="1573912941911" duration="12552000" />
       <workItem from="1574004966163" duration="14935000" />
       <workItem from="1574934380472" duration="33000" />
+      <workItem from="1574934535329" duration="327000" />
     </task>
     <servers />
   </component>
