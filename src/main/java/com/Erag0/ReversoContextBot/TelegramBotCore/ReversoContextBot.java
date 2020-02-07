@@ -9,7 +9,7 @@ import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 
 public class ReversoContextBot {
-    private static final String TOKEN = "935814207:AAFhnRjU-veiPLG1AUTPFMsqIbX2fgvDoCw";
+    private static final String TOKEN = "592148368:AAE59ohkGYvBjkJLt-zrmmtPKYANRtSrTYY";
     private TelegramBot bot;
 
     public ReversoContextBot() {
@@ -32,7 +32,6 @@ public class ReversoContextBot {
                     }else if (update.callbackQuery() != null) {
                         Logger.Log("info","Logs.txt", update.toString());
                         handler.execute(update.callbackQuery().data());
-
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();

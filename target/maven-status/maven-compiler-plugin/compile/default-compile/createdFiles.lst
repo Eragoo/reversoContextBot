@@ -1,5 +1,6 @@
 com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/Handler.class
 com/Erag0/ReversoContextBot/TelegramBotCore/CallbackHandlers/LangCallbackHandler.class
+com/Erag0/ReversoContextBot/TelegramBotCore/Commands/InfoCommand.class
 com/Erag0/ReversoContextBot/Util/DbClass.class
 com/Erag0/ReversoContextBot/TelegramBotCore/Commands/GetContextCommand.class
 com/Erag0/ReversoContextBot/Factories/CommandFactoryBehavior.class

@@ -2,10 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d9fd27c-c4e8-47ee-91e9-d48363adfcb4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/.DS_Store~HEAD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/.DS_Store~refactoring" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reversoContextBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/reversoContextBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Erag0/ReversoContextBot/TelegramBotCore/ReversoContextBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/reversoContextBot-1.0-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/reversoContextBot-1.0-shaded.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/reversoContextBot-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/reversoContextBot-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore.Commands/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/ReversoContextBot.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.Erag0.ReversoContextBot.TelegramBotCore/ReversoContextBot.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/AllTests/All.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/AllTests/All.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/AllTests/All.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/AllTests/All.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,8 +80,8 @@
         <option value="hibernate-configuration-5.2" />
         <option value="hibernate-main-5.2" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Tag Library Descriptor" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,6 +97,11 @@
   </component>
   <component name="ProjectId" id="1TWQH5DxnTzaW9eUxG6xSGTm7bx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="JPA.DatabaseSchemaImportDialog" value="d0fd3ccd-779b-410a-9d93-3ad536008c1e" />
@@ -100,20 +128,8 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="java -jar target/ReversoContextBot-1.0-shaded.jar " />
       <command value="mvn install" />
-    </option>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+      <command value="java -jar target/ReversoContextBot-1.0-shaded.jar " />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -131,7 +147,11 @@
       <workItem from="1573912941911" duration="12552000" />
       <workItem from="1574004966163" duration="14935000" />
       <workItem from="1574934380472" duration="33000" />
-      <workItem from="1574934535329" duration="327000" />
+      <workItem from="1574934535329" duration="479000" />
+      <workItem from="1575634426066" duration="47000" />
+      <workItem from="1575891007858" duration="181000" />
+      <workItem from="1578570775147" duration="529000" />
+      <workItem from="1581073051729" duration="228000" />
     </task>
     <servers />
   </component>
@@ -150,5 +170,27 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1238" height="193" key="GridCell.Tab.0.bottom" timestamp="1581073302927">
+      <screen x="0" y="0" width="1280" height="746" />
+    </state>
+    <state width="1238" height="193" key="GridCell.Tab.0.bottom/-1366.32.1366.768/0.0.1280.746@0.0.1280.746" timestamp="1581073302927" />
+    <state width="1238" height="193" key="GridCell.Tab.0.center" timestamp="1581073302924">
+      <screen x="0" y="0" width="1280" height="746" />
+    </state>
+    <state width="1238" height="193" key="GridCell.Tab.0.center/-1366.32.1366.768/0.0.1280.746@0.0.1280.746" timestamp="1581073302924" />
+    <state width="1238" height="193" key="GridCell.Tab.0.left" timestamp="1581073302922">
+      <screen x="0" y="0" width="1280" height="746" />
+    </state>
+    <state width="1238" height="193" key="GridCell.Tab.0.left/-1366.32.1366.768/0.0.1280.746@0.0.1280.746" timestamp="1581073302922" />
+    <state width="1238" height="193" key="GridCell.Tab.0.right" timestamp="1581073302925">
+      <screen x="0" y="0" width="1280" height="746" />
+    </state>
+    <state width="1238" height="193" key="GridCell.Tab.0.right/-1366.32.1366.768/0.0.1280.746@0.0.1280.746" timestamp="1581073302925" />
+    <state x="305" y="185" width="670" height="675" key="run.anything.popup" timestamp="1581073303090">
+      <screen x="0" y="0" width="1280" height="746" />
+    </state>
+    <state x="305" y="185" width="670" height="675" key="run.anything.popup/-1366.32.1366.768/0.0.1280.746@0.0.1280.746" timestamp="1581073303090" />
   </component>
 </project>

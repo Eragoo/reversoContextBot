@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:sqlite:/home/ec2-user/projects/reversoContextBot/DB/ReversoContext.db</property>
+        <property name="connection.url">jdbc:sqlite:/Users/macbook/Documents/programming/Databases/ReversoContextBot/ReversoContext.db</property>
         <property name="hibernate.dialect">
             com.Erag0.ReversoContextBot.Util.SQLiteDialect
         </property>

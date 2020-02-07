@@ -9,7 +9,7 @@ import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 
 public class ReversoContextBot {
-    private static final String TOKEN = &quot;935814207:AAFhnRjU-veiPLG1AUTPFMsqIbX2fgvDoCw&quot;;
+    private static final String TOKEN = &quot;592148368:AAE59ohkGYvBjkJLt-zrmmtPKYANRtSrTYY&quot;;
     private TelegramBot bot;
 
 <span class="nc" id="L15">    public ReversoContextBot() {</span>
@@ -32,16 +32,15 @@ public class ReversoContextBot {
 <span class="nc bnc" id="L32" title="All 2 branches missed.">                    }else if (update.callbackQuery() != null) {</span>
 <span class="nc" id="L33">                        Logger.Log(&quot;info&quot;,&quot;Logs.txt&quot;, update.toString());</span>
 <span class="nc" id="L34">                        handler.execute(update.callbackQuery().data());</span>
-
                     }
-<span class="nc" id="L37">                } catch (Exception ex) {</span>
-<span class="nc" id="L38">                    ex.printStackTrace();</span>
-<span class="nc" id="L39">                    Logger.Log(&quot;error&quot;, &quot;Logs.txt&quot;,ex.getStackTrace());</span>
-<span class="nc" id="L40">                }</span>
+<span class="nc" id="L36">                } catch (Exception ex) {</span>
+<span class="nc" id="L37">                    ex.printStackTrace();</span>
+<span class="nc" id="L38">                    Logger.Log(&quot;error&quot;, &quot;Logs.txt&quot;,ex.getStackTrace());</span>
+<span class="nc" id="L39">                }</span>
 
-<span class="nc" id="L42">            }</span>
-<span class="nc" id="L43">            return UpdatesListener.CONFIRMED_UPDATES_ALL;</span>
+<span class="nc" id="L41">            }</span>
+<span class="nc" id="L42">            return UpdatesListener.CONFIRMED_UPDATES_ALL;</span>
         });
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L44">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
