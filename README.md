@@ -1,5 +1,5 @@
 # Reverso Context Telegram Bot
-That [bot](http://t.me/ReversoContextbot) will help you study english.
+That [bot](http://t.me/ReversoContextbot) can help you study english.
 
 ## Stack:
 - Hibernate ORM
