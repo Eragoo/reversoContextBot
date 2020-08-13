@@ -1,6 +1,6 @@
 package com.Erag0.ReversoContextBot;
 
-import com.Erag0.ReversoContextBot.TelegramBotCore.ReversoContextBot;
+import com.Erag0.ReversoContextBot.core.ReversoContextBot;
 
 public class App {
 
