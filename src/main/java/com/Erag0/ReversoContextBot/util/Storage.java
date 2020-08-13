@@ -1,5 +1,6 @@
 package com.Erag0.ReversoContextBot.util;
 
+import com.Erag0.ReversoContextBot.domain.DbClass;
 import com.pengrad.telegrambot.model.Update;
 
 public class Storage {
@@ -20,7 +21,7 @@ public class Storage {
         long chat_id = update.callbackQuery().from().id();
         String username = update.callbackQuery().from().username();
         if (isSet(chat_id)) {
-            dbClass.UpdateLang(chat_id, username, lang);
+            dbClass.UpdateLang(chat_id, lang);
         } else {
             String command = "Undefined";
             dbClass.AddUser(chat_id, username, command, lang);
@@ -29,9 +30,6 @@ public class Storage {
 
     public boolean isSet(long chat_id){
         long i = dbClass.Count(chat_id);
-        if (i != 0) {
-            return true;
-        }
-        return false;
+        return i != 0;
     }
 }

@@ -23,6 +23,5 @@ public class InfoCommand implements Command {
         bot.execute(new SendMessage(update.message().chat().id(), "*Info command*")
                 .parseMode(ParseMode.Markdown)
         );
-        storage.StoreCommand(NAME);
     }
 }

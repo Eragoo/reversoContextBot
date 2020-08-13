@@ -38,8 +38,6 @@ public class StartCommand implements Command{
                 .parseMode(ParseMode.Markdown)
                 .replyMarkup(inlineKeyboard)
         );
-
-        storage.StoreCommand(NAME);
     }
     public String toString() {
         return NAME;

@@ -38,6 +38,5 @@ public class GetContextCommand implements Command{
                  .parseMode(ParseMode.Markdown)
             );
         }
-        storage.StoreCommand(NAME);
     }
 }

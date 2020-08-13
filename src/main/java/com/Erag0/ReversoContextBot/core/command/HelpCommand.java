@@ -22,7 +22,6 @@ public class HelpCommand implements Command {
         bot.execute(new SendMessage(update.message().chat().id(), "*Введите /start чтобы начать!*\n*_По всем вопросам обращайтесь к @Erag0Contactbot_")
         .parseMode(ParseMode.Markdown)
                 );
-        storage.StoreCommand(NAME);
     }
 
     public String toString() {
