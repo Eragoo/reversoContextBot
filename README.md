@@ -2,6 +2,6 @@
 That [bot](http://t.me/ReversoContextbot) can help you study english.
 
 ## Stack:
-- Native Sql
+- JDBC
 - Maven
 - Jsoup
