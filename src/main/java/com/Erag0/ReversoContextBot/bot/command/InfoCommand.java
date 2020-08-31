@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.core.command;
+package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
@@ -12,10 +12,10 @@ public class InfoCommand implements Command {
     private Storage storage;
     public final String NAME = "/info";
 
-    public InfoCommand(TelegramBot bot, Update update) {
+    public InfoCommand(TelegramBot bot, Update update, Storage storage) {
         this.bot = bot;
         this.update = update;
-        storage = new Storage(update);
+        this.storage = storage;
     }
 
     @Override

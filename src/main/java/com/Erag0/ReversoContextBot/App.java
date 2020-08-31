@@ -1,12 +1,16 @@
 package com.Erag0.ReversoContextBot;
 
-import com.Erag0.ReversoContextBot.core.ReversoContextBot;
+import com.Erag0.ReversoContextBot.domain.UserRepository;
+import com.Erag0.ReversoContextBot.util.Storage;
 
 public class App {
 
 	public static void main(String[] args) {
-		ReversoContextBot bot = new ReversoContextBot();
-		bot.Start();
+		UserRepository userRepository = new UserRepository();
+		Storage storage = new Storage(userRepository);
+
+		ReversoContextBot bot = new ReversoContextBot(storage);
+		bot.run();
 	}
 	
 }

@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.core.command;
+package com.Erag0.ReversoContextBot.bot.command;
 
 public interface Command {
     void execute();

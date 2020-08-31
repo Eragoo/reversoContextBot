@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.core.command;
+package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
@@ -12,10 +12,10 @@ public class HelpCommand implements Command {
     private Storage storage;
     public final String NAME = "/help";
 
-    public HelpCommand(TelegramBot bot, Update update) {
+    public HelpCommand(TelegramBot bot, Update update, Storage storage) {
        this.bot = bot;
        this.update = update;
-       storage = new Storage(update);
+       this.storage = storage;
     }
 
     public void execute() {

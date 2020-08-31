@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Builder
 public class User {
-    private long chat_id;
+    private long chatId;
     private String username;
     private String command;
     private String language;
