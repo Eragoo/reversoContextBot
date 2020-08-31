@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.logger.Behavior;
+package com.Erag0.ReversoContextBot.logger.behavior;
 
 import java.io.FileWriter;
 import java.io.IOException;

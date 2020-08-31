@@ -1,7 +1,7 @@
 package com.Erag0.ReversoContextBot.logger;
 
-import com.Erag0.ReversoContextBot.logger.Behavior.LogBehavior;
-import com.Erag0.ReversoContextBot.logger.Behavior.SimpleLogBehavior;
+import com.Erag0.ReversoContextBot.logger.behavior.LogBehavior;
+import com.Erag0.ReversoContextBot.logger.behavior.SimpleLogBehavior;
 
 public class Logger {
     private static LogBehavior logBehavior = new SimpleLogBehavior();
