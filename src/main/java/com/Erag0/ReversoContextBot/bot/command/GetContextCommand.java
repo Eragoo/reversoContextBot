@@ -8,16 +8,14 @@ import com.pengrad.telegrambot.model.Update;
 import java.io.IOException;
 
 public class GetContextCommand implements Command{
-    private Update update;
     private Storage storage;
     private BotMessageSender messageSender;
 
-    public GetContextCommand(Update update, Storage storage, BotMessageSender messageSender) {
-        this.update = update;
+    public GetContextCommand(Storage storage, BotMessageSender messageSender) {
         this.storage = storage;
         this.messageSender = messageSender;
     }
-    public void execute() {
+    public void execute(Update update) {
         long chatId = update.message().chat().id();
         String phrase = update.message().text();
         String lang = storage.getLanguage(chatId);

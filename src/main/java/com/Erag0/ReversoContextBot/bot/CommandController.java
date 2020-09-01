@@ -9,15 +9,17 @@ import com.pengrad.telegrambot.model.Update;
 
 public class CommandController {
     CommandFactory commandFactory;
-    public CommandController(Update update, Storage storage, BotMessageSender messageSender) {
-        commandFactory = new CommandFactory(update, storage, messageSender);
+
+    public CommandController(Storage storage, BotMessageSender messageSender) {
+        commandFactory = new CommandFactory(storage, messageSender);
     }
 
-    public void executeCommand(String command) {
-        commandFactory(command).execute();
+    public void executeCommand(String commandName, Update update) {
+        Command command = getCommand(commandName);
+        command.execute(update);
     }
 
-    private Command commandFactory(String command) {
+    private Command getCommand(String command) {
         return commandFactory.getCommand(command);
     }
 }

@@ -8,19 +8,17 @@ import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 
 public class InfoCommand implements Command {
-    private static Update update;
     private Storage storage;
     public final String NAME = "/info";
     private BotMessageSender messageSender;
 
-    public InfoCommand(Update update, Storage storage, BotMessageSender messageSender) {
-        this.update = update;
+    public InfoCommand(Storage storage, BotMessageSender messageSender) {
         this.storage = storage;
         this.messageSender = messageSender;
     }
 
     @Override
-    public void execute() {
+    public void execute(Update update) {
         String msg = "*Command not available*";
         long chatId = update.message().chat().id();
         messageSender.sendMessage(chatId, msg);

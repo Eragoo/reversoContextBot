@@ -8,18 +8,16 @@ import com.pengrad.telegrambot.model.request.*;
 import com.pengrad.telegrambot.request.SendMessage;
 
 public class StartCommand implements Command{
-    private static Update update;
     private Storage storage;
     public static final String NAME = "/start";
     private BotMessageSender messageSender;
 
-    public StartCommand(Update update, Storage storage, BotMessageSender messageSender) {
-        this.update = update;
+    public StartCommand(Storage storage, BotMessageSender messageSender) {
         this.storage = storage;
         this.messageSender = messageSender;
     }
 
-    public void execute() {
+    public void execute(Update update) {
         long chatId = update.message().chat().id();
 
         InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(

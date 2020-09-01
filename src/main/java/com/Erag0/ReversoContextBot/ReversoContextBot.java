@@ -22,14 +22,16 @@ public class ReversoContextBot {
     }
 
     public void run() {
+        CommandController commandController = new CommandController(storage, messageSender);
+
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
                 try {
-                    CommandController commandController = new CommandController(update, storage, messageSender);
                     LangCallbackHandler handler = new LangCallbackHandler(messageSender, update, storage);
 
                     if (update.message() != null) {
-                        commandController.executeCommand(GetCommandFromMessage.getCommand(update.message().text()));
+                        String commandName = GetCommandFromMessage.getCommand(update.message().text());
+                        commandController.executeCommand(commandName, update);
                     } else if (update.callbackQuery() != null) {
                         handler.execute(update.callbackQuery().data());
                     }
