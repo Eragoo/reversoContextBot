@@ -23,5 +23,4 @@ public class CommandParser {
         }
         throw new RuntimeException("Message: " + message + "doesn't contain known bot command");
     }
-
 }

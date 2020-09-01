@@ -8,7 +8,6 @@ import com.pengrad.telegrambot.model.request.*;
 
 public class StartCommand implements Command {
     private Storage storage;
-    public static final String NAME = "/start";
     private BotMessageSender messageSender;
 
     public StartCommand(Storage storage, BotMessageSender messageSender) {
@@ -36,9 +35,5 @@ public class StartCommand implements Command {
                 "*Выбери язык и введи желаемое слово/фразу*📝";
 
         messageSender.sendMessageWithInlineKeyboard(chatId, messageText, inlineKeyboard);
-    }
-
-    public String toString() {
-        return NAME;
     }
 }

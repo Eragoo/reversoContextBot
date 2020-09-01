@@ -6,7 +6,6 @@ import com.pengrad.telegrambot.model.Update;
 
 public class InfoCommand implements Command {
     private Storage storage;
-    public final String NAME = "/info";
     private BotMessageSender messageSender;
 
     public InfoCommand(Storage storage, BotMessageSender messageSender) {
