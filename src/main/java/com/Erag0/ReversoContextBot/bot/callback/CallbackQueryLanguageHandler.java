@@ -18,10 +18,12 @@ public class CallbackQueryLanguageHandler {
     public void handle(CallbackQuery callbackQuery) {
         long chatId = callbackQuery.from().id();
         String username = callbackQuery.from().username();
-        String lang = callbackQuery.data();//написать парсер который парсит по енаму языков доступных
+        String callbackData = callbackQuery.data();
+        Language language = Language.valueOf(callbackData);
+
         User user = User.builder()
                 .chatId(chatId)
-                .language(lang)
+                .language(language.getFullName())
                 .username(username)
                 .build();
 

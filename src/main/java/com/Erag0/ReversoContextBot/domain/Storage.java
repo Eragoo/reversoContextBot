@@ -1,8 +1,5 @@
 package com.Erag0.ReversoContextBot.domain;
 
-import com.Erag0.ReversoContextBot.domain.User;
-import com.Erag0.ReversoContextBot.domain.UserRepository;
-
 public class Storage {
     private UserRepository userRepository;
 

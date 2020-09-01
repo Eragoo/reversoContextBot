@@ -1,7 +1,6 @@
 package com.Erag0.ReversoContextBot;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.bot.CommandController;
 import com.Erag0.ReversoContextBot.bot.callback.CallbackQueryLanguageHandler;
 import com.Erag0.ReversoContextBot.bot.command.Command;
 import com.Erag0.ReversoContextBot.bot.command.CommandParser;
@@ -23,7 +22,6 @@ public class ReversoContextBot {
     }
 
     public void run() {
-        CommandController commandController = new CommandController(storage, messageSender);
         CallbackQueryLanguageHandler handler = new CallbackQueryLanguageHandler(messageSender, storage);
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
