@@ -26,19 +26,14 @@ public class ReversoContextBot {
 
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
-                try {
-                    LangCallbackHandler handler = new LangCallbackHandler(messageSender, update, storage);
+                LangCallbackHandler handler = new LangCallbackHandler(messageSender, update, storage);
 
-                    if (update.message() != null) {
-                        String commandName = GetCommandFromMessage.getCommand(update.message().text());
-                        commandController.executeCommand(commandName, update);
-                    } else if (update.callbackQuery() != null) {
-                        handler.execute(update.callbackQuery().data());
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                if (update.message() != null) {
+                    String commandName = GetCommandFromMessage.getCommand(update.message().text());
+                    commandController.executeCommand(commandName, update);
+                } else if (update.callbackQuery() != null) {
+                    handler.execute(update.callbackQuery().data());
                 }
-
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
