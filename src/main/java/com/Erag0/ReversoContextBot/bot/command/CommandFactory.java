@@ -12,11 +12,11 @@ public class CommandFactory {
         this.messageSender = messageSender;
     }
 
-    public Command getCommand(String command) {
-        if ("/help".equals(command)) {
-            return new HelpCommand(storage, messageSender);
-        } else if ("/start".equals(command)) {
-            return new StartCommand(storage, messageSender);
+    public Command getCommand(String commandName) {
+        if ("/help".equals(commandName)) {
+            return new HelpCommand(messageSender);
+        } else if ("/start".equals(commandName)) {
+            return new StartCommand(messageSender);
         }
         return new GetContextCommand(storage, messageSender);
     }

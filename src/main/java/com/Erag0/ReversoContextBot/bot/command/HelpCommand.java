@@ -5,11 +5,9 @@ import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.Update;
 
 public class HelpCommand implements Command {
-    private Storage storage;
     private BotMessageSender messageSender;
 
-    public HelpCommand(Storage storage, BotMessageSender messageSender) {
-        this.storage = storage;
+    public HelpCommand(BotMessageSender messageSender) {
         this.messageSender = messageSender;
     }
 
