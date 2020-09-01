@@ -1,5 +1,6 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
+import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.util.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
@@ -7,23 +8,19 @@ import com.pengrad.telegrambot.model.request.*;
 import com.pengrad.telegrambot.request.SendMessage;
 
 public class StartCommand implements Command{
-    private static TelegramBot bot;
     private static Update update;
     private Storage storage;
     public static final String NAME = "/start";
+    private BotMessageSender messageSender;
 
-    public StartCommand(TelegramBot bot, Update update, Storage storage) {
-        this.bot = bot;
+    public StartCommand(Update update, Storage storage, BotMessageSender messageSender) {
         this.update = update;
         this.storage = storage;
+        this.messageSender = messageSender;
     }
 
     public void execute() {
-        long chat_id = update.message().chat().id();
-        StringBuilder messageText = new StringBuilder();
-        messageText.append("*Привет👻*" + "\n");
-        messageText.append("*Я умею подставлять введенное слово в контекст выбраного тобой языка*✏️" + "\n");
-        messageText.append("*Выбери язык и введи желаемое слово/фразу*📝");
+        long chatId = update.message().chat().id();
 
         InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(
                 new InlineKeyboardButton[][]{{
@@ -34,10 +31,11 @@ public class StartCommand implements Command{
                         new InlineKeyboardButton("🇯🇵Jp - Ru🇷🇺").callbackData("japanese-russian"),
                         new InlineKeyboardButton("🇷🇺Ru - Jp🇯🇵").callbackData("russian-japanese")}
                 });
-        bot.execute(new SendMessage(chat_id, messageText.toString())
-                .parseMode(ParseMode.Markdown)
-                .replyMarkup(inlineKeyboard)
-        );
+        String messageText = "*Привет👻*" + "\n" +
+                "*Я умею подставлять введенное слово в контекст выбраного тобой языка*✏️" + "\n" +
+                "*Выбери язык и введи желаемое слово/фразу*📝";
+
+        messageSender.sendMessageWithInlineKeyboard(chatId, messageText, inlineKeyboard);
     }
     public String toString() {
         return NAME;

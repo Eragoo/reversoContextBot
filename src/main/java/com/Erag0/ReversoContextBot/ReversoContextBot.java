@@ -25,7 +25,7 @@ public class ReversoContextBot {
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
                 try {
-                    CommandController commandController = new CommandController(bot, update);
+                    CommandController commandController = new CommandController(update, storage, messageSender);
                     LangCallbackHandler handler = new LangCallbackHandler(messageSender, update, storage);
 
                     if (update.message() != null) {

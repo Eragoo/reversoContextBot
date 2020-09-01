@@ -18,10 +18,12 @@ public class LangCallbackHandler implements Handler{
     }
 
     public void execute(String query) {
+        long chatId = update.callbackQuery().from().id();
+        String username = update.callbackQuery().from().username();
         User user = User.builder()
-                .chatId(update.message().chat().id())
+                .chatId(chatId)
                 .language(query)
-                .username(update.message().chat().username())
+                .username(username)
                 .build();
 
         storage.saveUser(user);

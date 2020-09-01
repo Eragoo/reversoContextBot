@@ -1,23 +1,21 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
+import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.parser.Parser;
 import com.Erag0.ReversoContextBot.util.Storage;
-import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.Update;
-import com.pengrad.telegrambot.model.request.ParseMode;
-import com.pengrad.telegrambot.request.SendMessage;
 
 import java.io.IOException;
 
 public class GetContextCommand implements Command{
-    private TelegramBot bot;
     private Update update;
     private Storage storage;
+    private BotMessageSender messageSender;
 
-    public GetContextCommand(TelegramBot bot, Update update, Storage storage) {
-        this.bot = bot;
+    public GetContextCommand(Update update, Storage storage, BotMessageSender messageSender) {
         this.update = update;
         this.storage = storage;
+        this.messageSender = messageSender;
     }
     public void execute() {
         long chatId = update.message().chat().id();
@@ -30,9 +28,7 @@ public class GetContextCommand implements Command{
         } catch (IOException ex) {
             message = "*Такой фразы нет в нашей базе*😢\n*Пожалуйста, попробуй другую формулировку*";
         } finally {
-            bot.execute(new SendMessage(chatId, message)
-                 .parseMode(ParseMode.Markdown)
-            );
+            messageSender.sendMessage(chatId, message);
         }
     }
 }
