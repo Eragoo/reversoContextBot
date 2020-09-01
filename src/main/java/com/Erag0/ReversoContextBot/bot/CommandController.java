@@ -3,8 +3,7 @@ package com.Erag0.ReversoContextBot.bot;
 
 import com.Erag0.ReversoContextBot.bot.command.Command;
 import com.Erag0.ReversoContextBot.bot.command.CommandFactory;
-import com.Erag0.ReversoContextBot.util.Storage;
-import com.pengrad.telegrambot.TelegramBot;
+import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.Update;
 
 public class CommandController {

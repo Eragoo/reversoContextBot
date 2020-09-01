@@ -1,28 +1,27 @@
-package com.Erag0.ReversoContextBot.bot.callbackHandler;
+package com.Erag0.ReversoContextBot.bot.callback;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.domain.User;
-import com.Erag0.ReversoContextBot.util.Storage;
-import com.pengrad.telegrambot.model.Update;
+import com.Erag0.ReversoContextBot.domain.Storage;
+import com.pengrad.telegrambot.model.CallbackQuery;
 
-public class LangCallbackHandler implements Handler{
+public class CallbackQueryLanguageHandler {
     private Storage storage;
-    private Update update;
     private BotMessageSender messageSender;
 
-    public LangCallbackHandler(BotMessageSender messageSender, Update update, Storage storage) {
+    public CallbackQueryLanguageHandler(BotMessageSender messageSender, Storage storage) {
         this.storage = storage;
-        this.update = update;
         this.messageSender = messageSender;
 
     }
 
-    public void execute(String query) {
-        long chatId = update.callbackQuery().from().id();
-        String username = update.callbackQuery().from().username();
+    public void handle(CallbackQuery callbackQuery) {
+        long chatId = callbackQuery.from().id();
+        String username = callbackQuery.from().username();
+        String lang = callbackQuery.data();//написать парсер который парсит по енаму языков доступных
         User user = User.builder()
                 .chatId(chatId)
-                .language(query)
+                .language(lang)
                 .username(username)
                 .build();
 

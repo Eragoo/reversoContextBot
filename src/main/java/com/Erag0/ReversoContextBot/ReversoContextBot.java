@@ -2,9 +2,10 @@ package com.Erag0.ReversoContextBot;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.bot.CommandController;
-import com.Erag0.ReversoContextBot.bot.callbackHandler.LangCallbackHandler;
-import com.Erag0.ReversoContextBot.util.GetCommandFromMessage;
-import com.Erag0.ReversoContextBot.util.Storage;
+import com.Erag0.ReversoContextBot.bot.callback.CallbackQueryLanguageHandler;
+import com.Erag0.ReversoContextBot.bot.command.Command;
+import com.Erag0.ReversoContextBot.bot.command.CommandParser;
+import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
@@ -23,16 +24,15 @@ public class ReversoContextBot {
 
     public void run() {
         CommandController commandController = new CommandController(storage, messageSender);
-
+        CallbackQueryLanguageHandler handler = new CallbackQueryLanguageHandler(messageSender, storage);
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
-                LangCallbackHandler handler = new LangCallbackHandler(messageSender, update, storage);
-
                 if (update.message() != null) {
-                    String commandName = GetCommandFromMessage.getCommand(update.message().text());
-                    commandController.executeCommand(commandName, update);
+                    String messageText = update.message().text();
+                    Command command = CommandParser.getCommand(messageText, storage, messageSender);
+                    command.execute(update);
                 } else if (update.callbackQuery() != null) {
-                    handler.execute(update.callbackQuery().data());
+                    handler.handle(update.callbackQuery());
                 }
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;

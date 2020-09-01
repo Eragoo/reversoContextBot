@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.util;
+package com.Erag0.ReversoContextBot.domain;
 
 import com.Erag0.ReversoContextBot.domain.User;
 import com.Erag0.ReversoContextBot.domain.UserRepository;

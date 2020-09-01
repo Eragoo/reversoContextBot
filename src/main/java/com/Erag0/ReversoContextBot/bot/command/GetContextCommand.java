@@ -2,7 +2,7 @@ package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.parser.Parser;
-import com.Erag0.ReversoContextBot.util.Storage;
+import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.Update;
 
 import java.io.IOException;

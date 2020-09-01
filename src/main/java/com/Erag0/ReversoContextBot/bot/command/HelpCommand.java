@@ -1,11 +1,8 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.util.Storage;
-import com.pengrad.telegrambot.TelegramBot;
+import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.Update;
-import com.pengrad.telegrambot.model.request.ParseMode;
-import com.pengrad.telegrambot.request.SendMessage;
 
 public class HelpCommand implements Command {
     private Storage storage;

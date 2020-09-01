@@ -1,7 +1,7 @@
 package com.Erag0.ReversoContextBot;
 
 import com.Erag0.ReversoContextBot.domain.UserRepository;
-import com.Erag0.ReversoContextBot.util.Storage;
+import com.Erag0.ReversoContextBot.domain.Storage;
 
 public class App {
 

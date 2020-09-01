@@ -1,7 +1,7 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.util.Storage;
+import com.Erag0.ReversoContextBot.domain.Storage;
 
 public class CommandFactory {
     private Storage storage;
