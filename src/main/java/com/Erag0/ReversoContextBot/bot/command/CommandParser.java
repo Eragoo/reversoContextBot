@@ -4,23 +4,27 @@ import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.domain.Storage;
 import lombok.NonNull;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public class CommandParser {
     public static Command getCommand(String message, Storage storage, BotMessageSender messageSender) {
-        String commandName = getCommandName(message);
+        CommandName commandName = getCommandName(message);
         CommandFactory commandFactory = new CommandFactory(storage, messageSender);
         return commandFactory.getCommand(commandName);
     }
 
-    private static String getCommandName(@NonNull String message) {
-        String trimmed = message.trim();
-        Pattern p = Pattern.compile("(/\\S+)");
-        Matcher matcher = p.matcher(trimmed);
-        if (matcher.find()) {
-            return matcher.group(1);
+    private static CommandName getCommandName(@NonNull String message) {
+        String trimmedMsg = message.trim();
+        if (isRegularCommand(trimmedMsg)) {
+            String enumCommandName = trimmedMsg.substring(1).toUpperCase();
+            return CommandName.valueOf(enumCommandName);
         }
-        throw new RuntimeException("Message: " + message + "doesn't contain known bot command");
+        return CommandName.PARSE;
+    }
+
+    private static boolean isRegularCommand(String trimmed) {
+        return Arrays.stream(CommandName.values())
+                .map(CommandName::getName)
+                .anyMatch(commandName -> commandName.equals(trimmed));
     }
 }
