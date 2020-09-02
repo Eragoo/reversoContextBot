@@ -20,7 +20,7 @@ public class UserRepository {
             statement.setString(3, user.getCommand());
             statement.setString(4, user.getLanguage());
 
-            statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -35,7 +35,7 @@ public class UserRepository {
             statement.setString(3, user.getLanguage());
             statement.setLong(4, user.getChatId());
 
-            statement.execute();
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -66,6 +66,6 @@ public class UserRepository {
 
     private Connection getConnection() throws SQLException {
         Properties properties = new Properties();
-        return JDBC.createConnection(DbConfig.URL, properties);
+        return JDBC.createConnection(DatabaseProperties.URL, properties);
     }
 }

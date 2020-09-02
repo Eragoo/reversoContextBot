@@ -5,6 +5,8 @@ import com.Erag0.ReversoContextBot.domain.User;
 import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.CallbackQuery;
 
+import java.util.Arrays;
+
 public class CallbackQueryLanguageHandler {
     private Storage storage;
     private BotMessageSender messageSender;
@@ -16,22 +18,28 @@ public class CallbackQueryLanguageHandler {
     }
 
     public void handle(CallbackQuery callbackQuery) {
+        String messageText = "*Язык перевода задан*✨\n";
+
         long chatId = callbackQuery.from().id();
         String username = callbackQuery.from().username();
         String callbackData = callbackQuery.data();
-        Language language = Language.valueOf(callbackData);
 
-        User user = User.builder()
-                .chatId(chatId)
-                .language(language.getFullName())
-                .username(username)
-                .build();
-
-        storage.saveUser(user);
-        sendSuccessMessage(user.getChatId());
-    }
-    private void sendSuccessMessage(long chatId) {
-        String messageText = "*Язык перевода задан*✨\n";
+        if (isLanguageSupported(callbackData)) {
+            User user = User.builder()
+                    .chatId(chatId)
+                    .language(callbackData)
+                    .username(username)
+                    .build();
+            storage.saveUser(user);
+        } else {
+            messageText = "*Язык не поддерживается*😔\n";
+        }
         messageSender.sendMessage(chatId, messageText);
+    }
+
+    private boolean isLanguageSupported(String lang) {
+        return Arrays.stream(Language.values())
+                .map(Language::getFullName)
+                .anyMatch(name -> name.equals(lang));
     }
 }

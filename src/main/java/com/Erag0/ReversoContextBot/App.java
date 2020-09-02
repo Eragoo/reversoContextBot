@@ -1,5 +1,6 @@
 package com.Erag0.ReversoContextBot;
 
+import com.Erag0.ReversoContextBot.bot.ReversoContextBot;
 import com.Erag0.ReversoContextBot.domain.UserRepository;
 import com.Erag0.ReversoContextBot.domain.Storage;
 

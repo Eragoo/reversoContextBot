@@ -21,6 +21,6 @@ public class Storage {
 
     private boolean isNewUser(User user) {
         long i = userRepository.count(user);
-        return i != 0;
+        return i == 0;
     }
 }
