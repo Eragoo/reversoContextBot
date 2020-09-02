@@ -13,9 +13,9 @@ public class CommandFactory {
     }
 
     public Command getCommand(CommandName commandName) {
-        if ("/start".equals(commandName.getName())) {
+        if (StartCommand.NAME.equals(commandName)) {
             return new StartCommand(messageSender);
-        } else if ("/parse".equals(commandName.getName())) {
+        } else if (GetContextCommand.NAME.equals(commandName)) {
             return new GetContextCommand(storage, messageSender);
         }
         return new HelpCommand(messageSender);

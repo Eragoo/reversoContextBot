@@ -5,7 +5,9 @@ import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.model.Update;
 
 public class HelpCommand implements Command {
+    public static final CommandName NAME = CommandName.HELP;
     private BotMessageSender messageSender;
+
 
     public HelpCommand(BotMessageSender messageSender) {
         this.messageSender = messageSender;

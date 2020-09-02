@@ -7,6 +7,7 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.*;
 
 public class StartCommand implements Command {
+    public static final CommandName NAME = CommandName.START;
     private BotMessageSender messageSender;
 
     public StartCommand(BotMessageSender messageSender) {

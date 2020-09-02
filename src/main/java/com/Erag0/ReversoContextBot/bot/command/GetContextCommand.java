@@ -8,6 +8,8 @@ import com.pengrad.telegrambot.model.Update;
 import java.io.IOException;
 
 public class GetContextCommand implements Command{
+    public static final CommandName NAME = CommandName.PARSE;
+
     private Storage storage;
     private BotMessageSender messageSender;
 
