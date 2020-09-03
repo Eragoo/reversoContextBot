@@ -8,8 +8,10 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 import lombok.extern.java.Log;
+import sun.util.logging.PlatformLogger;
 
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.Erag0.ReversoContextBot.bot.BotProperties.TOKEN;
@@ -31,12 +33,16 @@ public class ReversoContextBot {
         CallbackQueryLanguageHandler callbackQueryHandler = new CallbackQueryLanguageHandler(messageSender, storage);
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
-                if (isCommandReceived(update)) {
-                    String messageText = update.message().text();
-                    Command command = CommandParser.getCommand(messageText, storage, messageSender);
-                    command.execute(update);
-                } else if (isCallbackQueryReceived(update)) {
-                    callbackQueryHandler.handle(update.callbackQuery());
+                try {
+                    if (isCommandReceived(update)) {
+                        String messageText = update.message().text();
+                        Command command = CommandParser.getCommand(messageText, storage, messageSender);
+                        command.execute(update);
+                    } else if (isCallbackQueryReceived(update)) {
+                        callbackQueryHandler.handle(update.callbackQuery());
+                    }
+                } catch (Exception e) {
+                    log.log(Level.SEVERE, e.getCause().getMessage());
                 }
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
