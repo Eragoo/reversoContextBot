@@ -5,47 +5,46 @@ import org.sqlite.JDBC;
 import java.sql.*;
 import java.util.Properties;
 
-public class DbClass {
-    private static DbClass dbClass = new DbClass();
+public class UserRepository {
 
-    private DbClass() {
+    public UserRepository() {
     }
 
-    public static DbClass getInstance() {
-        return dbClass;
-    }
-
-    public void AddUser(long chat_id, String username, String command, String language) {
+    public void save(User user) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Users (chat_id, username, command, language)" +
                     "VALUES (?, ?, ?, ?)");
 
-            statement.setLong(1, chat_id);
-            statement.setString(2, username);
-            statement.setString(3, command);
-            statement.setString(4, language);
+            statement.setLong(1, user.getChatId());
+            statement.setString(2, user.getUsername());
+            statement.setString(3, user.getCommand());
+            statement.setString(4, user.getLanguage());
 
-            statement.executeQuery();
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void UpdateLang(long chat_id, String language) {
+    public void update(User user) {
         try (Connection connection = getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("UPDATE Users SET language = ? WHERE chat_id = ?");
-            statement.setString(1, language);
-            statement.setLong(2, chat_id);
-            statement.execute();
+            PreparedStatement statement = connection.prepareStatement("UPDATE Users SET username = ?, command = ?, language = ? WHERE chat_id = ?");
+
+            statement.setString(1, user.getUsername());
+            statement.setString(2, user.getCommand());
+            statement.setString(3, user.getLanguage());
+            statement.setLong(4, user.getChatId());
+
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public String RestoreLang(long chat_id) {
+    public String getLanguage(long chatId) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT language AS lang FROM Users WHERE chat_id = ?");
-            statement.setLong(1, chat_id);
+            statement.setLong(1, chatId);
             ResultSet resultSet = statement.executeQuery();
             return resultSet.getString("lang");
         } catch (SQLException e) {
@@ -54,10 +53,10 @@ public class DbClass {
     }
 
 
-    public long Count(long chat_id) {
+    public long count(User user) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM Users WHERE chat_id = ?");
-            statement.setLong(1, chat_id);
+            statement.setLong(1, user.getChatId());
             ResultSet resultSet = statement.executeQuery();
             return (long) resultSet.getFloat("count");
         } catch (SQLException e) {
@@ -67,6 +66,6 @@ public class DbClass {
 
     private Connection getConnection() throws SQLException {
         Properties properties = new Properties();
-        return JDBC.createConnection(DbConfig.URL, properties);
+        return JDBC.createConnection(DatabaseProperties.URL, properties);
     }
 }
