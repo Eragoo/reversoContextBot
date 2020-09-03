@@ -7,9 +7,14 @@ import com.Erag0.ReversoContextBot.domain.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
+import lombok.extern.java.Log;
+
+
+import java.util.logging.Logger;
 
 import static com.Erag0.ReversoContextBot.bot.BotProperties.TOKEN;
 
+@Log
 public class ReversoContextBot {
     private TelegramBot bot;
     private Storage storage;
@@ -22,6 +27,7 @@ public class ReversoContextBot {
     }
 
     public void run() {
+        log.info("Application started!");
         CallbackQueryLanguageHandler callbackQueryHandler = new CallbackQueryLanguageHandler(messageSender, storage);
         this.bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
