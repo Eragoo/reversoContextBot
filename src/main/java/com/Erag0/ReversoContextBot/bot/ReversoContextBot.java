@@ -4,13 +4,11 @@ import com.Erag0.ReversoContextBot.bot.callback.CallbackQueryLanguageHandler;
 import com.Erag0.ReversoContextBot.bot.command.Command;
 import com.Erag0.ReversoContextBot.bot.command.CommandParser;
 import com.Erag0.ReversoContextBot.domain.Storage;
+import com.Erag0.ReversoContextBot.error.TelegramExceptionHandler;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 import lombok.extern.java.Log;
-
-
-import java.util.logging.Logger;
 
 import static com.Erag0.ReversoContextBot.bot.BotProperties.TOKEN;
 
@@ -28,19 +26,29 @@ public class ReversoContextBot {
 
     public void run() {
         log.info("Application started!");
+        TelegramExceptionHandler exceptionHandler = new TelegramExceptionHandler();
+        UpdatesListener updatesListener = getUpdatesListener();
+        bot.setUpdatesListener(updatesListener, exceptionHandler);
+    }
+
+    private UpdatesListener getUpdatesListener() {
         CallbackQueryLanguageHandler callbackQueryHandler = new CallbackQueryLanguageHandler(messageSender, storage);
-        this.bot.setUpdatesListener(updates -> {
+        return updates -> {
             for (Update update : updates) {
-                if (isCommandReceived(update)) {
-                    String messageText = update.message().text();
-                    Command command = CommandParser.getCommand(messageText, storage, messageSender);
-                    command.execute(update);
-                } else if (isCallbackQueryReceived(update)) {
-                    callbackQueryHandler.handle(update.callbackQuery());
-                }
+                processSingleUpdate(callbackQueryHandler, update);
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
-        });
+        };
+    }
+
+    private void processSingleUpdate(CallbackQueryLanguageHandler callbackQueryHandler, Update update) {
+        if (isCommandReceived(update)) {
+            String messageText = update.message().text();
+            Command command = CommandParser.getCommand(messageText, storage, messageSender);
+            command.execute(update);
+        } else if (isCallbackQueryReceived(update)) {
+            callbackQueryHandler.handle(update.callbackQuery());
+        }
     }
 
     private boolean isCallbackQueryReceived(Update update) {
