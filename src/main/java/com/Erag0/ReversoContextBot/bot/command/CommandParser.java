@@ -1,15 +1,16 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
+import com.Erag0.ReversoContextBot.contentProvider.ContextReversoContentProvider;
 import com.Erag0.ReversoContextBot.domain.Storage;
 import lombok.NonNull;
 
 import java.util.Arrays;
 
 public class CommandParser {
-    public static Command getCommand(String message, Storage storage, BotMessageSender messageSender) {
+    public static Command getCommand(String message, Storage storage, BotMessageSender messageSender, ContextReversoContentProvider contentProvider) {
         CommandName commandName = getCommandName(message);
-        CommandFactory commandFactory = new CommandFactory(storage, messageSender);
+        CommandFactory commandFactory = new CommandFactory(storage, messageSender, contentProvider);
         return commandFactory.getCommand(commandName);
     }
 

@@ -1,5 +1,9 @@
 package com.Erag0.ReversoContextBot.domain;
 
+import com.Erag0.ReversoContextBot.bot.callback.Language;
+
+import java.util.Arrays;
+
 public class Storage {
     private UserRepository userRepository;
 
@@ -7,8 +11,16 @@ public class Storage {
         this.userRepository = userRepository;
     }
 
-    public String getLanguage(long chatId) {
-        return userRepository.getLanguage(chatId);
+    public Language getLanguage(long chatId) {
+        String stringLang = userRepository.getLanguage(chatId);
+        return convertToLanguage(stringLang);
+    }
+
+    private Language convertToLanguage(String stringLang) {
+        return Arrays.stream(Language.values())
+                .filter(enumValue -> !enumValue.getFullName().equals(stringLang))
+                .findFirst()
+                .orElseThrow(()->new RuntimeException("Not specified language provided"));
     }
 
     public void saveUser(User user) {
