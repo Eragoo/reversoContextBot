@@ -1,15 +1,15 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.contentProvider.ContextReversoContentProvider;
+import com.Erag0.ReversoContextBot.contentProvider.ContentProvider;
 import com.Erag0.ReversoContextBot.domain.Storage;
 
 public class CommandFactory {
     private Storage storage;
     private BotMessageSender messageSender;
-    private ContextReversoContentProvider contentProvider;
+    private ContentProvider contentProvider;
 
-    public CommandFactory(Storage storage, BotMessageSender messageSender, ContextReversoContentProvider contentProvider) {
+    public CommandFactory(Storage storage, BotMessageSender messageSender, ContentProvider contentProvider) {
         this.storage = storage;
         this.messageSender = messageSender;
         this.contentProvider = contentProvider;

@@ -9,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.util.*;
-import java.util.logging.Level;
 
 @Log
 public class Parser {

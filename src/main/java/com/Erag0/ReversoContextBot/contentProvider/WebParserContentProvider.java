@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 @Log
-public class WebParserContextReversoContentProvider implements ContextReversoContentProvider {
+public class WebParserContentProvider implements ContentProvider {
     @Override
     public String getContent(Language language, String phrase) {
         Parser parser = new Parser();
