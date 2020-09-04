@@ -35,13 +35,13 @@ public class ReversoContextBot {
         CallbackQueryLanguageHandler callbackQueryHandler = new CallbackQueryLanguageHandler(messageSender, storage);
         return updates -> {
             for (Update update : updates) {
-                processUpdate(callbackQueryHandler, update);
+                processSingleUpdate(callbackQueryHandler, update);
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         };
     }
 
-    private void processUpdate(CallbackQueryLanguageHandler callbackQueryHandler, Update update) {
+    private void processSingleUpdate(CallbackQueryLanguageHandler callbackQueryHandler, Update update) {
         if (isCommandReceived(update)) {
             String messageText = update.message().text();
             Command command = CommandParser.getCommand(messageText, storage, messageSender);
