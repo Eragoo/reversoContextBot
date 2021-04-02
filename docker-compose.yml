@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  reverso-db:
+    image: mongo:latest
+    container_name: reverso-bot-db
+    restart: always
+    environment:
+      - MONGO_INITDB_DATABASE=bot
+    ports:
+      - 27017:27017
