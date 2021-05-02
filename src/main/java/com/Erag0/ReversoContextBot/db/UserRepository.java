@@ -1,6 +1,7 @@
 package com.Erag0.ReversoContextBot.db;
 
 import java.sql.*;
+import java.util.Optional;
 import java.util.Properties;
 
 import static com.Erag0.ReversoContextBot.config.DbConfig.*;
@@ -41,12 +42,15 @@ public class UserRepository {
         }
     }
 
-    public String getLanguage(long chatId) {
+    public Optional<String> getLanguage(long chatId) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT lang AS lang FROM user_action WHERE chat_id = ?");
             statement.setLong(1, chatId);
             ResultSet resultSet = statement.executeQuery();
-            return resultSet.getString("lang");
+            if (resultSet.next()) {
+                return Optional.of(resultSet.getString("lang"));
+            }
+            return Optional.empty();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -58,7 +62,10 @@ public class UserRepository {
             PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM user_action WHERE chat_id = ?");
             statement.setLong(1, userAction.getChatId());
             ResultSet resultSet = statement.executeQuery();
-            return (long) resultSet.getFloat("count");
+            if (resultSet.next()) {
+                return resultSet.getLong("count");
+            }
+            return 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -34,6 +34,7 @@ public class ReversoContextBot {
         return updates -> {
             for (Update update : updates) {
                 processSingleUpdate(callbackQueryHandler, update);
+                log.info(update.toString());
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         };

@@ -39,7 +39,7 @@ public class CallbackQueryLanguageHandler {
 
     private boolean isLanguageSupported(String lang) {
         return Arrays.stream(Language.values())
-                .map(Language::getFullName)
+                .map(Language::name)
                 .anyMatch(name -> name.equals(lang));
     }
 }

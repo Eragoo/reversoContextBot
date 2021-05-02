@@ -1,5 +1,7 @@
 package com.Erag0.ReversoContextBot.db;
 
+import java.util.Optional;
+
 public class Storage {
     private final UserRepository userRepository;
 
@@ -7,7 +9,7 @@ public class Storage {
         this.userRepository = userRepository;
     }
 
-    public String getLanguage(long chatId) {
+    public Optional<String> getLanguage(long chatId) {
         return userRepository.getLanguage(chatId);
     }
 

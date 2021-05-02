@@ -9,26 +9,17 @@ import org.jsoup.select.Elements;
 
 import java.util.*;
 
-public class Parser {
-
-    private String word;
-    private String lang;
-
-    public Parser(String lang, String word) {
-        this.word = UrlSpaceEncode(word.trim());
-        this.lang = lang.trim();
-    }
-
-    public String getText() throws IOException {
-        HashMap<String, String> parsedData = processData(parse());
+public class ReversoContext {
+    public static String getTranslation(String lang, String word) throws IOException {
+        HashMap<String, String> parsedData = processData(parse(lang, word));
         String text = new Text(parsedData.get("translate"), parsedData.get("examples")).getFinalText();
 
         return text;
     }
 
-    private HashMap<String, Elements> parse() throws IOException {
+    private static HashMap<String, Elements> parse(String lang, String word) throws IOException {
         HashMap<String, Elements> elements = new HashMap<>();
-        Document doc = Jsoup.connect("https://context.reverso.net/translation/" + this.lang + "/" + this.word).get();
+        Document doc = Jsoup.connect("https://context.reverso.net/translation/" + lang + "/" + word).get();
         Elements translate = doc.select("div#translations-content");
         Elements nativeSentence = doc.select("div.src.ltr");
         Elements translatedSentence = doc.select("div.trg.ltr");
@@ -39,11 +30,11 @@ public class Parser {
         return elements;
     }
 
-    private String UrlSpaceEncode(String str) {
+    private static String UrlSpaceEncode(String str) {
         return str.replace(" ", "-");
     }
 
-    private HashMap<String, String> processData(HashMap<String, Elements> elems) {
+    private static HashMap<String, String> processData(HashMap<String, Elements> elems) {
         HashMap<String, String> results = new HashMap<>();
         String finalSentence = "";
 
