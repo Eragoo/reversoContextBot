@@ -3,20 +3,19 @@ package com.Erag0.ReversoContextBot.bot;
 import com.Erag0.ReversoContextBot.bot.callback.CallbackQueryLanguageHandler;
 import com.Erag0.ReversoContextBot.bot.command.Command;
 import com.Erag0.ReversoContextBot.bot.command.CommandParser;
-import com.Erag0.ReversoContextBot.domain.Storage;
-import com.Erag0.ReversoContextBot.error.TelegramExceptionHandler;
+import com.Erag0.ReversoContextBot.db.Storage;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 import lombok.extern.java.Log;
 
-import static com.Erag0.ReversoContextBot.bot.BotProperties.TOKEN;
+import static com.Erag0.ReversoContextBot.config.BotConfig.TOKEN;
 
 @Log
 public class ReversoContextBot {
-    private TelegramBot bot;
-    private Storage storage;
-    private BotMessageSender messageSender;
+    private final TelegramBot bot;
+    private final Storage storage;
+    private final BotMessageSender messageSender;
 
     public ReversoContextBot(Storage storage) {
         this.storage = storage;
@@ -26,9 +25,8 @@ public class ReversoContextBot {
 
     public void run() {
         log.info("Application started!");
-        TelegramExceptionHandler exceptionHandler = new TelegramExceptionHandler();
         UpdatesListener updatesListener = getUpdatesListener();
-        bot.setUpdatesListener(updatesListener, exceptionHandler);
+        bot.setUpdatesListener(updatesListener);
     }
 
     private UpdatesListener getUpdatesListener() {

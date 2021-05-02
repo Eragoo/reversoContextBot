@@ -1,7 +1,7 @@
 package com.Erag0.ReversoContextBot.bot.command;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.domain.Storage;
+import com.Erag0.ReversoContextBot.db.Storage;
 import lombok.NonNull;
 
 import java.util.Arrays;

@@ -1,8 +1,8 @@
 package com.Erag0.ReversoContextBot.bot.callback;
 
 import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.domain.User;
-import com.Erag0.ReversoContextBot.domain.Storage;
+import com.Erag0.ReversoContextBot.db.UserAction;
+import com.Erag0.ReversoContextBot.db.Storage;
 import com.pengrad.telegrambot.model.CallbackQuery;
 
 import java.util.Arrays;
@@ -25,12 +25,12 @@ public class CallbackQueryLanguageHandler {
         String callbackData = callbackQuery.data();
 
         if (isLanguageSupported(callbackData)) {
-            User user = User.builder()
+            UserAction userAction = UserAction.builder()
                     .chatId(chatId)
-                    .language(callbackData)
+                    .lang(callbackData)
                     .username(username)
                     .build();
-            storage.saveUser(user);
+            storage.saveUser(userAction);
         } else {
             messageText = "*Язык не поддерживается*😔\n";
         }
