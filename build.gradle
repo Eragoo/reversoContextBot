@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+group = 'com.Erag0'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'commons-configuration:commons-configuration:1.10'
+    compile 'org.jsoup:jsoup:1.11.3'
+    compile 'com.github.pengrad:java-telegram-bot-api:4.4.0'
+    compile 'org.postgresql:postgresql:42.1.4'
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    testCompile 'com.tvd12:test-util:1.0.5'
+    annotationProcessor "org.projectlombok:lombok:1.18.8"
+}
+
+def generatedSourceDir = "$buildDir/generated/src/main/"
+
+//Hack for IDE & annotationProcessors
+sourceSets.main.java.srcDir file(generatedSourceDir)
+
+compileJava {
+    options.annotationProcessorGeneratedSourcesDirectory = file(generatedSourceDir) // https://github.com/gradle/gradle/issues/4956
+}

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ReversoContextDB" uuid="d0fd3ccd-779b-410a-9d93-3ad536008c1e">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="core@localhost" uuid="fcdee77d-2f9e-4599-b696-5078d2058de9">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../../Databases/ReversoContextBot/ReversoContext.db</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/core</jdbc-url>
     </data-source>
   </component>
 </project>

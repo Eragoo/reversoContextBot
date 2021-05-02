@@ -1,0 +1,74 @@
+package com.Erag0.ReversoContextBot.db;
+
+import java.sql.*;
+import java.util.Properties;
+
+import static com.Erag0.ReversoContextBot.config.DbConfig.*;
+
+public class UserRepository {
+
+    public UserRepository() {
+    }
+
+    public void save(UserAction userAction) {
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO user_action (chat_id, username, command, lang)" +
+                    "VALUES (?, ?, ?, ?)");
+
+            statement.setLong(1, userAction.getChatId());
+            statement.setString(2, userAction.getUsername());
+            statement.setString(3, userAction.getCommand());
+            statement.setString(4, userAction.getLang());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void update(UserAction userAction) {
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE user_action SET username = ?, command = ?, lang = ? WHERE chat_id = ?");
+
+            statement.setString(1, userAction.getUsername());
+            statement.setString(2, userAction.getCommand());
+            statement.setString(3, userAction.getLang());
+            statement.setLong(4, userAction.getChatId());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getLanguage(long chatId) {
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT lang AS lang FROM user_action WHERE chat_id = ?");
+            statement.setLong(1, chatId);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.getString("lang");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public long count(UserAction userAction) {
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM user_action WHERE chat_id = ?");
+            statement.setLong(1, userAction.getChatId());
+            ResultSet resultSet = statement.executeQuery();
+            return (long) resultSet.getFloat("count");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Connection getConnection() throws SQLException {
+        Properties properties = new Properties();
+        properties.setProperty("user", USR);
+        properties.setProperty("password", PASS);
+
+        return DriverManager.getConnection(URL, properties);
+    }
+}
