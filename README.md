@@ -1,7 +1,7 @@
 # Reverso Context Telegram Bot
-That [bot](http://t.me/ReversoContextbot) can help you study english.
+That [bot](http://t.me/ReversoContextbot) will definitely help you with some tricky phrases in Eng and some others popular languages.
 
 ## Stack:
-- JDBC
-- Maven
+- Postgres
+- Gradle
 - Jsoup
