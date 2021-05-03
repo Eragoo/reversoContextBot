@@ -1,13 +1,15 @@
 package com.Eragoo.reversoContextBot;
 
-import org.bson.types.ObjectId;
-
-import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
-    public static void main(String[] args) throws UnknownHostException {
-        MessageRepository r = new MessageRepository();
-        Message saved = r.save(Message.builder().telegramId(1L).text("Texewqeqt").build());
-        r.delete(saved);
+    public static void main(String[] args) {
+        List<? extends Number> l = new ArrayList<>();
+        
+    }
+
+    public static double log2(double n) {
+        return Math.log10(n) / Math.log10(2);
     }
 }
