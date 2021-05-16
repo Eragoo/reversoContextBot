@@ -1,19 +1,14 @@
-package com.Erag0.ReversoContextBot.bot.command;
+package com.Erag0.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.bot.BotMessageSender;
-import com.Erag0.ReversoContextBot.bot.callback.Language;
+import com.Erag0.ReversoContextBot.Message;
+import com.Erag0.ReversoContextBot.Language;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.*;
 
 public class StartCommand implements Command {
     public static final CommandName NAME = CommandName.START;
-    private BotMessageSender messageSender;
 
-    public StartCommand(BotMessageSender messageSender) {
-        this.messageSender = messageSender;
-    }
-
-    public void execute(Update update) {
+    public Message execute(Update update) {
         long chatId = update.message().chat().id();
 
         InlineKeyboardMarkup inlineKeyboard = getInlineKeyboard();
@@ -22,7 +17,7 @@ public class StartCommand implements Command {
                 "*Я умею подставлять введенное слово в контекст выбраного тобой языка*✏️" + "\n" +
                 "*Выбери язык и введи желаемое слово/фразу*📝";
 
-        messageSender.sendMessageWithInlineKeyboard(chatId, messageText, inlineKeyboard);
+        return new Message(chatId, messageText, inlineKeyboard);
     }
 
     private InlineKeyboardMarkup getInlineKeyboard() {

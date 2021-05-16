@@ -1,15 +1,14 @@
-package com.Erag0.ReversoContextBot.bot.command;
+package com.Erag0.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.bot.BotMessageSender;
 import com.Erag0.ReversoContextBot.db.Storage;
 import lombok.NonNull;
 
 import java.util.Arrays;
 
 public class CommandParser {
-    public static Command getCommand(String message, Storage storage, BotMessageSender messageSender) {
+    public static Command getCommand(String message, Storage storage) {
         CommandName commandName = getCommandName(message);
-        CommandFactory commandFactory = new CommandFactory(storage, messageSender);
+        CommandFactory commandFactory = new CommandFactory(storage);
         return commandFactory.getCommand(commandName);
     }
 
@@ -27,4 +26,6 @@ public class CommandParser {
                 .map(CommandName::getName)
                 .anyMatch(commandName -> commandName.equals(trimmed));
     }
+
+
 }

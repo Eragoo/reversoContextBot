@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.bot.callback;
+package com.Erag0.ReversoContextBot;
 
 import lombok.Getter;
 
@@ -14,5 +14,14 @@ public enum Language {
     private String fullName;
     Language(String fullName) {
         this.fullName = fullName;
+    }
+
+    public static boolean isSupported(String lang) {
+        try {
+            Language.valueOf(lang);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }

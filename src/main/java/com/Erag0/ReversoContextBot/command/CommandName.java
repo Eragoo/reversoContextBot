@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.bot.command;
+package com.Erag0.ReversoContextBot.command;
 
 import lombok.Getter;
 
@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum CommandName {
     START("/start"),
     HELP("/help"),
-    PARSE("/parse");
+    PARSE("/parse"),
+    SET_LANGUAGE(null);
 
     private String name;
     CommandName(String name) {

@@ -1,20 +1,14 @@
-package com.Erag0.ReversoContextBot.bot.command;
+package com.Erag0.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.bot.BotMessageSender;
+import com.Erag0.ReversoContextBot.Message;
 import com.pengrad.telegrambot.model.Update;
 
 public class HelpCommand implements Command {
     public static final CommandName NAME = CommandName.HELP;
-    private BotMessageSender messageSender;
 
-
-    public HelpCommand(BotMessageSender messageSender) {
-        this.messageSender = messageSender;
-    }
-
-    public void execute(Update update) {
+    public Message execute(Update update) {
         long chatId = update.message().chat().id();
         String msg = "*Введите /start чтобы начать!*\n*_По всем вопросам обращайтесь к @Erag0Contactbot_";
-        messageSender.sendMessage(chatId, msg);
+        return new Message(chatId, msg);
     }
 }
