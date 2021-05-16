@@ -12,8 +12,7 @@ public class BotService {
     private final Storage storage;
 
     public Message consumeUpdate(Update update) {
-        String messageText = update.message().text();
-        Command command = CommandParser.getCommand(messageText, storage);
+        Command command = CommandParser.getCommand(update, storage);
         return command.execute(update);
     }
 }
