@@ -27,7 +27,14 @@ public class BotFrontController {
     private UpdatesListener updatesListener() {
         return updates -> {
             for (Update update : updates) {
-                Message message = botController.consumeUpdate(update);
+                Message message;
+                try {
+                    message = botController.consumeUpdate(update);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    message = new Message(update.message().chat().id(), "*Произошла ошибка :( \n\r" +
+                            "Пожалуйста, сообщие об ошибке разработчику*");
+                }
                 sendResponse(message);
 
                 log.info(update.toString());
