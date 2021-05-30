@@ -2,17 +2,17 @@ package com.Erag0.ReversoContextBot.command;
 
 import com.Erag0.ReversoContextBot.Message;
 import com.Erag0.ReversoContextBot.Language;
-import com.Erag0.ReversoContextBot.db.Storage;
 import com.Erag0.ReversoContextBot.db.UserAction;
+import com.Erag0.ReversoContextBot.db.UserRepository;
 import com.pengrad.telegrambot.model.Update;
 
 public class SetLanguageCommand implements Command {
     public static final CommandName NAME = CommandName.SET_LANGUAGE;
 
-    private final Storage storage;
+    private final UserRepository repository;
 
-    public SetLanguageCommand(Storage storage) {
-        this.storage = storage;
+    public SetLanguageCommand(UserRepository repository) {
+        this.repository = repository;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class SetLanguageCommand implements Command {
                     .lang(lang)
                     .username(username)
                     .build();
-            storage.saveUser(userAction);
+            repository.saveUser(userAction);
         } else {
             messageText = "*Язык не поддерживается*😔\n";
         }

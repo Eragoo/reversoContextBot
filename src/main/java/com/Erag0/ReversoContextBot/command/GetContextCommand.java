@@ -2,9 +2,9 @@ package com.Erag0.ReversoContextBot.command;
 
 import com.Erag0.ReversoContextBot.Message;
 import com.Erag0.ReversoContextBot.Language;
+import com.Erag0.ReversoContextBot.db.UserRepository;
 import com.Erag0.ReversoContextBot.parser.ParseResult;
 import com.Erag0.ReversoContextBot.parser.WebParser;
-import com.Erag0.ReversoContextBot.db.Storage;
 import com.pengrad.telegrambot.model.Update;
 
 import java.io.IOException;
@@ -14,16 +14,16 @@ import java.util.stream.Collectors;
 public class GetContextCommand implements Command {
     public static final CommandName NAME = CommandName.PARSE;
 
-    private final Storage storage;
+    private final UserRepository repository;
 
-    public GetContextCommand(Storage storage) {
-        this.storage = storage;
+    public GetContextCommand(UserRepository repo) {
+        this.repository = repo;
     }
 
     public Message execute(Update update) {
         long chatId = update.message().chat().id();
         String phrase = update.message().text();
-        Optional<String> lang = storage.getLanguage(chatId);
+        Optional<String> lang = repository.getLanguage(chatId);
         String message = "";
         try {
             if (lang.isPresent()) {

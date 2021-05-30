@@ -11,10 +11,25 @@ public class UserRepository {
     public UserRepository() {
     }
 
-    public void save(UserAction userAction) {
+    public void saveUser(UserAction userAction) {
+        if (isNewUser(userAction)) {
+            save(userAction);
+        } else {
+            update(userAction);
+        }
+    }
+
+    private boolean isNewUser(UserAction userAction) {
+        long i = count(userAction);
+        return i == 0;
+    }
+
+    private void save(UserAction userAction) {
         try (Connection connection = getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO user_action (chat_id, username, command, lang)" +
-                    "VALUES (?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO user_action (chat_id, username, command, lang)" +
+                    "VALUES (?, ?, ?, ?)"
+            );
 
             statement.setLong(1, userAction.getChatId());
             statement.setString(2, userAction.getUsername());
@@ -27,7 +42,7 @@ public class UserRepository {
         }
     }
 
-    public void update(UserAction userAction) {
+    private void update(UserAction userAction) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("UPDATE user_action SET username = ?, command = ?, lang = ? WHERE chat_id = ?");
 
@@ -57,7 +72,7 @@ public class UserRepository {
     }
 
 
-    public long count(UserAction userAction) {
+    private long count(UserAction userAction) {
         try (Connection connection = getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) AS count FROM user_action WHERE chat_id = ?");
             statement.setLong(1, userAction.getChatId());
