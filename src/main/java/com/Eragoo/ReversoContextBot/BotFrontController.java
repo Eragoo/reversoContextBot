@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot;
+package com.Eragoo.ReversoContextBot;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
@@ -7,7 +7,7 @@ import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.extern.java.Log;
 
-import static com.Erag0.ReversoContextBot.config.BotConfig.TOKEN;
+import static com.Eragoo.ReversoContextBot.config.BotConfig.TOKEN;
 
 @Log
 public class BotFrontController {

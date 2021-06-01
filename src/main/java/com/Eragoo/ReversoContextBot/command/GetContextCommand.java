@@ -1,10 +1,10 @@
-package com.Erag0.ReversoContextBot.command;
+package com.Eragoo.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.Message;
-import com.Erag0.ReversoContextBot.Language;
-import com.Erag0.ReversoContextBot.db.UserRepository;
-import com.Erag0.ReversoContextBot.parser.ParseResult;
-import com.Erag0.ReversoContextBot.parser.WebParser;
+import com.Eragoo.ReversoContextBot.Message;
+import com.Eragoo.ReversoContextBot.Language;
+import com.Eragoo.ReversoContextBot.db.UserRepository;
+import com.Eragoo.ReversoContextBot.parser.ParseResult;
+import com.Eragoo.ReversoContextBot.parser.WebParser;
 import com.pengrad.telegrambot.model.Update;
 
 import java.io.IOException;

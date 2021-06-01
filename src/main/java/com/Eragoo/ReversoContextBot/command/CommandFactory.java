@@ -1,6 +1,6 @@
-package com.Erag0.ReversoContextBot.command;
+package com.Eragoo.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.db.UserRepository;
+import com.Eragoo.ReversoContextBot.db.UserRepository;
 import com.pengrad.telegrambot.model.Update;
 
 import java.util.Arrays;

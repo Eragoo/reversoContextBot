@@ -1,6 +1,6 @@
-package com.Erag0.ReversoContextBot;
+package com.Eragoo.ReversoContextBot;
 
-import com.Erag0.ReversoContextBot.db.UserRepository;
+import com.Eragoo.ReversoContextBot.db.UserRepository;
 
 public class App {
 
@@ -12,5 +12,4 @@ public class App {
 		BotFrontController bot = new BotFrontController(botController);
 		bot.run();
 	}
-	
 }
