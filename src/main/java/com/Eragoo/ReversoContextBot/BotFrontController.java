@@ -36,8 +36,6 @@ public class BotFrontController {
                             "Пожалуйста, сообщие об ошибке разработчику*");
                 }
                 sendResponse(message);
-
-                log.info(update.toString());
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         };
