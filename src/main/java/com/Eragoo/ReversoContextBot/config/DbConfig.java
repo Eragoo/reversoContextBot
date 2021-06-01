@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.config;
+package com.Eragoo.ReversoContextBot.config;
 
 public class DbConfig {
     public static final String URL = "jdbc:postgresql://localhost:5432/core";

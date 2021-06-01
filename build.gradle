@@ -26,3 +26,12 @@ sourceSets.main.java.srcDir file(generatedSourceDir)
 compileJava {
     options.annotationProcessorGeneratedSourcesDirectory = file(generatedSourceDir) // https://github.com/gradle/gradle/issues/4956
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.Eragoo.ReversoContextBot.App"
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

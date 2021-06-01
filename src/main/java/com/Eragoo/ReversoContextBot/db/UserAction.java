@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.db;
+package com.Eragoo.ReversoContextBot.db;
 
 import lombok.Builder;
 import lombok.Getter;

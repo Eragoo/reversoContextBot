@@ -1,8 +1,8 @@
-package com.Erag0.ReversoContextBot;
+package com.Eragoo.ReversoContextBot;
 
-import com.Erag0.ReversoContextBot.command.Command;
-import com.Erag0.ReversoContextBot.command.CommandFactory;
-import com.Erag0.ReversoContextBot.db.UserRepository;
+import com.Eragoo.ReversoContextBot.command.Command;
+import com.Eragoo.ReversoContextBot.command.CommandFactory;
+import com.Eragoo.ReversoContextBot.db.UserRepository;
 import com.pengrad.telegrambot.model.Update;
 import lombok.AllArgsConstructor;
 

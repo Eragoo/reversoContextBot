@@ -1,7 +1,7 @@
-package com.Erag0.ReversoContextBot.command;
+package com.Eragoo.ReversoContextBot.command;
 
-import com.Erag0.ReversoContextBot.Message;
-import com.Erag0.ReversoContextBot.Language;
+import com.Eragoo.ReversoContextBot.Message;
+import com.Eragoo.ReversoContextBot.Language;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.model.request.*;
 

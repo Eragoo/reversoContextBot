@@ -1,10 +1,10 @@
-package com.Erag0.ReversoContextBot.db;
+package com.Eragoo.ReversoContextBot.db;
 
 import java.sql.*;
 import java.util.Optional;
 import java.util.Properties;
 
-import static com.Erag0.ReversoContextBot.config.DbConfig.*;
+import static com.Eragoo.ReversoContextBot.config.DbConfig.*;
 
 public class UserRepository {
 

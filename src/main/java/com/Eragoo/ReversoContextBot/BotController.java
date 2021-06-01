@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot;
+package com.Eragoo.ReversoContextBot;
 
 import com.pengrad.telegrambot.model.Update;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.Erag0.ReversoContextBot.parser;
+package com.Eragoo.ReversoContextBot.parser;
 
 import java.io.IOException;
 
@@ -8,7 +8,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class WebParser {
     public static List<ParseResult> getTranslation(String lang, String word) throws IOException {
