@@ -5,7 +5,8 @@ services:
     container_name: reverso-context-bot
     restart: always
     environment:
-      - DB_HOST=db
+      - BOT_DB_HOST=db
+      - BOT_TOKEN=YOUR-TOKEN
 
   db:
     image: postgres
